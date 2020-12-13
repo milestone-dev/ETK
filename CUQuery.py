@@ -246,1314 +246,1240 @@ def f_setTargetUnit(epd, targetUnitPtr):
 def f_getTargetResourceRaw(epd):
     return f_dwread_epd(epd + 0x0C8 // 4)
 
-# TIMERS
+# AUTO GENEREATED FUNCTIONS
 
-def f_getLarvaTimer(epd):
-    return f_bread_epd(epd + 0x0CA // 4,  0x0CA % 4) // 65536 
+def f_getPrev(epd):
+    return f_dwread_epd(epd + 0x000 // 4)
 
+def f_setPrev(epd, value):
+    f_dwwrite_epd(epd, 0x000, value)
 
-def f_setLarvaTimer(epd, timer):
-    f_bwrite_epd(epd + 0x0CA // 4,  0x0CA % 4, timer * 65536)
+def f_getNext(epd):
+    return f_dwread_epd(epd + 0x004 // 4)
 
+def f_setNext(epd, value):
+    f_dwwrite_epd(epd, 0x004, value)
 
-def f_getStimTimer(epd):
-    return f_bread_epd(epd + 0x115 // 4,  0x115 % 4) // 256
+def f_getHitPoints(epd):
+    return f_dwread_epd(epd + 0x008 // 4)
 
+def f_setHitPoints(epd, value):
+    f_dwwrite_epd(epd, 0x008, value)
 
-def f_setStimTimer(epd, timer):
-    f_bwrite_epd(epd + 0x115 // 4,  0x115 % 4, timer * 256)
+def f_getSprite(epd):
+    return f_dwread_epd(epd + 0x00C // 4)
 
+def f_setSprite(epd, value):
+    f_dwwrite_epd(epd, 0x00C, value)
 
-def f_getRemoveTimer(epd):
-    return f_wread_epd(epd + 0x110 // 4,  0x110 % 4)
-
-
-def f_setRemoveTimer(epd, timer):
-    f_wwrite_epd(epd + 0x110 // 4,  0x110 % 4, timer)
-
-
-def f_getMaelstromTimer(epd):
-    return f_bread_epd(epd + 0x124 // 4,  0x124 % 4)
-
-
-def f_setMaelstromTimer(epd, timer):
-    f_bwrite_epd(epd + 0x124 // 4,  0x124 % 4, timer)
-
-
-def f_getEnsnareTimer(epd):
-    return f_bread_epd(epd + 0x116 // 4,  0x116 % 4)
-
-
-def f_setEnsnareTimer(epd, timer):
-    f_bwrite_epd(epd + 0x116 // 4,  0x116 % 4, timer)
-
-
-def f_getLockdownTimer(epd):
-    return f_bread_epd(epd + 0x117 // 4,  0x117 % 4)
-
-
-def f_setLockdownTimer(epd, timer):
-    f_bwrite_epd(epd + 0x117 // 4,  0x117 % 4, timer)
-
-
-def f_getStasisTimer(epd):
-    return f_bread_epd(epd + 0x119 // 4,  0x119 % 4)
-
-
-def f_setStasisTimer(epd, timer):
-    f_bwrite_epd(epd + 0x119 // 4,  0x119 % 4, timer)
-
-
-def f_getPlagueTimer(epd):
-    return f_bread_epd(epd + 0x11A // 4,  0x11A % 4)
-
-
-def f_setPlagueTimer(epd, timer):
-    f_bwrite_epd(epd + 0x11A // 4,  0x11A % 4, timer)
-
-
-def f_getStormTimer(epd):
-    return f_bread_epd(epd + 0x11B // 4,  0x11B % 4)
-
-
-def f_setStormTimer(epd, timer):
-    f_bwrite_epd(epd + 0x11B // 4,  0x11B % 4, timer)
-
-
-"""
-def getPrev(epd):
-    return f_dwread_epd(epd + 0x000 // 4, 0x000 % 4)
-
-def setPrev(epd, value):
-    f_dwwrite_epd(epd, 0x000, value, value)
-
-def getNext(epd):
-    return f_dwread_epd(epd + 0x004 // 4, 0x004 % 4)
-
-def setNext(epd, value):
-    f_dwwrite_epd(epd, 0x004, value, value)
-
-def getHitPoints(epd):
-    return f_dwread_epd(epd + 0x008 // 4, 0x008 % 4)
-
-def setHitPoints(epd, value):
-    f_dwwrite_epd(epd, 0x008, value, value)
-
-def getSprite(epd):
-    return f_dwread_epd(epd + 0x00C // 4, 0x00C % 4)
-
-def setSprite(epd, value):
-    f_dwwrite_epd(epd, 0x00C, value, value)
-
-def getMoveTargetX(epd):
+def f_getMoveTargetX(epd):
     return f_wread_epd(epd + 0x010 // 4, 0x010 % 4)
 
-def setMoveTargetX(epdepd, value):
+def f_setMoveTargetX(epdepd, value):
     f_wread_epd(epd + 0x010 // 4, 0x010 % 4)
 
-def getMoveTargetY(epd):
+def f_getMoveTargetY(epd):
     return f_wread_epd(epd + 0x012 // 4, 0x012 % 4)
 
-def setMoveTargetY(epdepd, value):
+def f_setMoveTargetY(epdepd, value):
     f_wread_epd(epd + 0x012 // 4, 0x012 % 4)
 
-def getMoveTargetUnit(epd):
-    return f_dwread_epd(epd + 0x014 // 4, 0x014 % 4)
+def f_getMoveTargetUnit(epd):
+    return f_dwread_epd(epd + 0x014 // 4)
 
-def setMoveTargetUnit(epdepd, value):
-    f_dwread_epd(epd + 0x014 // 4, 0x014 % 4)
+def f_setMoveTargetUnit(epdepd, value):
+    f_dwread_epd(epd + 0x014 // 4)
 
-def getNextMovementWaypointX(epd):
+def f_getNextMovementWaypointX(epd):
     return f_wread_epd(epd + 0x018 // 4, 0x018 % 4)
 
-def setNextMovementWaypointX(epd, value):
+def f_setNextMovementWaypointX(epd, value):
     f_wwrite_epd(epd + 0x018 // 4, 0x018 % 4, value)
 
-def getNextMovementWaypointY(epd):
+def f_getNextMovementWaypointY(epd):
     return f_wread_epd(epd + 0x01A // 4, 0x01A % 4)
 
-def setNextMovementWaypointY(epd, value):
+def f_setNextMovementWaypointY(epd, value):
     f_wwrite_epd(epd + 0x01A // 4, 0x01A % 4, value)
 
-def getNextTargetWaypointX(epd):
+def f_getNextTargetWaypointX(epd):
     return f_wread_epd(epd + 0x01C // 4, 0x01C % 4)
 
-def setNextTargetWaypointX(epdepd, value):
+def f_setNextTargetWaypointX(epdepd, value):
     f_wread_epd(epd + 0x01C // 4, 0x01C % 4)
 
-def getNextTargetWaypointY(epd):
+def f_getNextTargetWaypointY(epd):
     return f_wread_epd(epd + 0x01E // 4, 0x01E % 4)
 
-def setNextTargetWaypointY(epdepd, value):
+def f_setNextTargetWaypointY(epdepd, value):
     f_wread_epd(epd + 0x01E // 4, 0x01E % 4)
 
-def getMovementFlags(epd):
+def f_getMovementFlags(epd):
     return f_bread_epd(epd + 0x020 // 4, 0x020 % 4)
 
-def setMovementFlags(epd, value):
+def f_setMovementFlags(epd, value):
     f_bwrite_epd(epd + 0x020 // 4, 0x020 % 4, value)
 
-def getCurrentDirection1(epd):
+def f_getCurrentDirection1(epd):
     return f_bread_epd(epd + 0x021 // 4, 0x021 % 4)
 
-def setCurrentDirection1(epd, value):
+def f_setCurrentDirection1(epd, value):
     f_bwrite_epd(epd + 0x021 // 4, 0x021 % 4, value)
 
-def getFlingyTurnRadius(epd):
+def f_getFlingyTurnRadius(epd):
     return f_bread_epd(epd + 0x022 // 4, 0x022 % 4)
 
-def setFlingyTurnRadius(epd, value):
+def f_setFlingyTurnRadius(epd, value):
     f_bwrite_epd(epd + 0x022 // 4, 0x022 % 4, value)
 
-def getVelocityDirection1(epd):
+def f_getVelocityDirection1(epd):
     return f_bread_epd(epd + 0x023 // 4, 0x023 % 4)
 
-def setVelocityDirection1(epd, value):
+def f_setVelocityDirection1(epd, value):
     f_bwrite_epd(epd + 0x023 // 4, 0x023 % 4, value)
 
-def getFlingyID(epd):
+def f_getFlingyID(epd):
     return f_wread_epd(epd + 0x024 // 4, 0x024 % 4)
 
-def setFlingyID(epd, value):
+def f_setFlingyID(epd, value):
     f_wwrite_epd(epd + 0x024 // 4, 0x024 % 4, value)
 
-def get_unknown_0x026(epd):
+def f_getUnknown_0x026(epd):
     return f_bread_epd(epd + 0x026 // 4, 0x026 % 4)
 
-def set_unknown_0x026(epd, value):
+def f_set_unknown_0x026(epd, value):
     f_bwrite_epd(epd + 0x026 // 4, 0x026 % 4, value)
 
-def getFlingyMovementType(epd):
+def f_getFlingyMovementType(epd):
     return f_bread_epd(epd + 0x027 // 4, 0x027 % 4)
 
-def setFlingyMovementType(epd, value):
+def f_setFlingyMovementType(epd, value):
     f_bwrite_epd(epd + 0x027 // 4, 0x027 % 4, value)
 
-def getPositionX(epd):
+def f_getPositionX(epd):
     return f_wread_epd(epd + 0x028 // 4, 0x028 % 4)
 
-def setPositionX(epd, value):
+def f_setPositionX(epd, value):
     f_wwrite_epd(epd + 0x028 // 4, 0x028 % 4, value)
 
-def getPositionY(epd):
+def f_getPositionY(epd):
     return f_wread_epd(epd + 0x02A // 4, 0x02A % 4)
 
-def setPositionY(epd, value):
+def f_setPositionY(epd, value):
     f_wwrite_epd(epd + 0x02A // 4, 0x02A % 4, value)
 
-def getHaltX(epd):
-    return f_dwread_epd(epd + 0x02C // 4, 0x02C % 4)
+def f_getHaltX(epd):
+    return f_dwread_epd(epd + 0x02C // 4)
 
-def setHaltX(epd, value):
-    f_dwwrite_epd(epd, 0x02C, value, value)
+def f_setHaltX(epd, value):
+    f_dwwrite_epd(epd, 0x02C, value)
 
-def getHaltY(epd):
-    return f_dwread_epd(epd + 0x030 // 4, 0x030 % 4)
+def f_getHaltY(epd):
+    return f_dwread_epd(epd + 0x030 // 4)
 
-def setHaltY(epd, value):
-    f_dwwrite_epd(epd, 0x030, value, value)
+def f_setHaltY(epd, value):
+    f_dwwrite_epd(epd, 0x030, value)
 
-def getFlingyTopSpeed(epd):
-    return f_dwread_epd(epd + 0x034 // 4, 0x034 % 4)
+def f_getFlingyTopSpeed(epd):
+    return f_dwread_epd(epd + 0x034 // 4)
 
-def setFlingyTopSpeed(epd, value):
-    f_dwwrite_epd(epd, 0x034, value, value)
+def f_setFlingyTopSpeed(epd, value):
+    f_dwwrite_epd(epd, 0x034, value)
 
-def getCurrent_speed1(epd):
-    return f_dwread_epd(epd + 0x038 // 4, 0x038 % 4)
+def f_getCurrent_speed1(epd):
+    return f_dwread_epd(epd + 0x038 // 4)
 
-def setCurrent_speed1(epd, value):
-    f_dwwrite_epd(epd, 0x038, value, value)
+def f_setCurrent_speed1(epd, value):
+    f_dwwrite_epd(epd, 0x038, value)
 
-def getCurrent_speed2(epd):
-    return f_dwread_epd(epd + 0x03C // 4, 0x03C % 4)
+def f_getCurrent_speed2(epd):
+    return f_dwread_epd(epd + 0x03C // 4)
 
-def setCurrent_speed2(epd, value):
-    f_dwwrite_epd(epd, 0x03C, value, value)
+def f_setCurrent_speed2(epd, value):
+    f_dwwrite_epd(epd, 0x03C, value)
 
-def getCurrent_speedX(epd):
-    return f_dwread_epd(epd + 0x040 // 4, 0x040 % 4)
+def f_getCurrent_speedX(epd):
+    return f_dwread_epd(epd + 0x040 // 4)
 
-def setCurrent_speedX(epd, value):
-    f_dwwrite_epd(epd, 0x040, value, value)
+def f_setCurrent_speedX(epd, value):
+    f_dwwrite_epd(epd, 0x040, value)
 
-def getCurrent_speedY(epd):
-    return f_dwread_epd(epd + 0x044 // 4, 0x044 % 4)
+def f_getCurrent_speedY(epd):
+    return f_dwread_epd(epd + 0x044 // 4)
 
-def setCurrent_speedY(epd, value):
-    f_dwwrite_epd(epd, 0x044, value, value)
+def f_setCurrent_speedY(epd, value):
+    f_dwwrite_epd(epd, 0x044, value)
 
-def getFlingyAcceleration(epd):
+def f_getFlingyAcceleration(epd):
     return f_wread_epd(epd + 0x048 // 4, 0x048 % 4)
 
-def setFlingyAcceleration(epd, value):
+def f_setFlingyAcceleration(epd, value):
     f_wwrite_epd(epd + 0x048 // 4, 0x048 % 4, value)
 
-def getCurrentDirection2(epd):
+def f_getCurrentDirection2(epd):
     return f_bread_epd(epd + 0x04A // 4, 0x04A % 4)
 
-def setCurrentDirection2(epd, value):
+def f_setCurrentDirection2(epd, value):
     f_bwrite_epd(epd + 0x04A // 4, 0x04A % 4, value)
 
-def getVelocityDirection2(epd):
+def f_getVelocityDirection2(epd):
     return f_bread_epd(epd + 0x04B // 4, 0x04B % 4)
 
-def setVelocityDirection2(epd, value):
+def f_setVelocityDirection2(epd, value):
     f_bwrite_epd(epd + 0x04B // 4, 0x04B % 4, value)
 
-def getPlayerID(epd):
+def f_getPlayerID(epd):
     return f_bread_epd(epd + 0x04C // 4, 0x04C % 4)
 
-def setPlayerID(epd, value):
+def f_setPlayerID(epd, value):
     f_bwrite_epd(epd + 0x04C // 4, 0x04C % 4, value)
 
-def getOrderID(epd):
+def f_getOrderID(epd):
     return f_bread_epd(epd + 0x04D // 4, 0x04D % 4)
 
-def setOrderID(epd, value):
+def f_setOrderID(epd, value):
     f_bwrite_epd(epd + 0x04D // 4, 0x04D % 4, value)
 
-def getOrderState(epd):
+def f_getOrderState(epd):
     return f_bread_epd(epd + 0x04E // 4, 0x04E % 4)
 
-def setOrderState(epd, value):
+def f_setOrderState(epd, value):
     f_bwrite_epd(epd + 0x04E // 4, 0x04E % 4, value)
 
-def getOrderSignal(epd):
+def f_getOrderSignal(epd):
     return f_bread_epd(epd + 0x04F // 4, 0x04F % 4)
 
-def setOrderSignal(epd, value):
+def f_setOrderSignal(epd, value):
     f_bwrite_epd(epd + 0x04F // 4, 0x04F % 4, value)
 
-def getOrderUnitType(epd):
+def f_getOrderUnitType(epd):
     return f_wread_epd(epd + 0x050 // 4, 0x050 % 4)
 
-def setOrderUnitType(epd, value):
+def f_setOrderUnitType(epd, value):
     f_wwrite_epd(epd + 0x050 // 4, 0x050 % 4, value)
 
-def get__0x52(epd):
+def f_get52Flag(epd):
     return f_wread_epd(epd + 0x052 // 4, 0x052 % 4)
 
-def set__0x52(epd, value):
+def f_set52Flag(epd, value):
     f_wwrite_epd(epd + 0x052 // 4, 0x052 % 4, value)
 
-def getMainOrderTimer(epd):
+def f_getMainOrderTimer(epd):
     return f_bread_epd(epd + 0x054 // 4, 0x054 % 4)
 
-def setMainOrderTimer(epd, value):
+def f_setMainOrderTimer(epd, value):
     f_bwrite_epd(epd + 0x054 // 4, 0x054 % 4, value)
 
-def getGroundWeaponCooldown(epd):
+def f_getGroundWeaponCooldown(epd):
     return f_bread_epd(epd + 0x055 // 4, 0x055 % 4)
 
-def setGroundWeaponCooldown(epd, value):
+def f_setGroundWeaponCooldown(epd, value):
     f_bwrite_epd(epd + 0x055 // 4, 0x055 % 4, value)
 
-def getAirWeaponCooldown(epd):
+def f_getAirWeaponCooldown(epd):
     return f_bread_epd(epd + 0x056 // 4, 0x056 % 4)
 
-def setAirWeaponCooldown(epd, value):
+def f_setAirWeaponCooldown(epd, value):
     f_bwrite_epd(epd + 0x056 // 4, 0x056 % 4, value)
 
-def getSpellCooldown(epd):
+def f_getSpellCooldown(epd):
     return f_bread_epd(epd + 0x057 // 4, 0x057 % 4)
 
-def setSpellCooldown(epd, value):
+def f_setSpellCooldown(epd, value):
     f_bwrite_epd(epd + 0x057 // 4, 0x057 % 4, value)
 
-def getOrderTargetX(epd):
+def f_getOrderTargetX(epd):
     return f_wread_epd(epd + 0x058 // 4, 0x058 % 4)
 
-def setOrderTargetX(epdepd, value):
+def f_setOrderTargetX(epdepd, value):
     f_wread_epd(epd + 0x058 // 4, 0x058 % 4)
 
-def getOrderTargetY(epd):
+def f_getOrderTargetY(epd):
     return f_wread_epd(epd + 0x05A // 4, 0x05A % 4)
 
-def setOrderTargetY(epdepd, value):
+def f_setOrderTargetY(epdepd, value):
     f_wread_epd(epd + 0x05A // 4, 0x05A % 4)
 
-def getOrderTargetUnit(epd):
-    return f_dwread_epd(epd + 0x05C // 4, 0x05C % 4)
+def f_getOrderTargetUnit(epd):
+    return f_dwread_epd(epd + 0x05C // 4)
 
-def setOrderTargetUnit(epdepd, value):
-    f_dwread_epd(epd + 0x05C // 4, 0x05C % 4)
+def f_setOrderTargetUnit(epdepd, value):
+    f_dwread_epd(epd + 0x05C // 4)
 
-def getShieldPoints(epd):
-    return f_dwread_epd(epd + 0x060 // 4, 0x060 % 4)
+def f_getShieldPoints(epd):
+    return f_dwread_epd(epd + 0x060 // 4)
 
-def setShieldPoints(epd, value):
-    f_dwwrite_epd(epd, 0x060, value, value)
+def f_setShieldPoints(epd, value):
+    f_dwwrite_epd(epd, 0x060, value)
 
-def getUnitType(epd):
+def f_getUnitType(epd):
     return f_wread_epd(epd + 0x064 // 4, 0x064 % 4)
 
-def setUnitType(epd, value):
+def f_setUnitType(epd, value):
     f_wwrite_epd(epd + 0x064 // 4, 0x064 % 4, value)
 
-def get__0x66(epd):
+def f_get66Flag(epd):
     return f_wread_epd(epd + 0x066 // 4, 0x066 % 4)
 
-def set__0x66(epd, value):
+def f_set66Flag(epd, value):
     f_wwrite_epd(epd + 0x066 // 4, 0x066 % 4, value)
 
-def getPreviousPlayerUnit(epd):
-    return f_dwread_epd(epd + 0x068 // 4, 0x068 % 4)
+def f_getPreviousPlayerUnit(epd):
+    return f_dwread_epd(epd + 0x068 // 4)
 
-def setPreviousPlayerUnit(epd, value):
-    f_dwwrite_epd(epd, 0x068, value, value)
+def f_setPreviousPlayerUnit(epd, value):
+    f_dwwrite_epd(epd, 0x068, value)
 
-def getNextPlayerUnit(epd):
-    return f_dwread_epd(epd + 0x06C // 4, 0x06C % 4)
+def f_getNextPlayerUnit(epd):
+    return f_dwread_epd(epd + 0x06C // 4)
 
-def setNextPlayerUnit(epd, value):
-    f_dwwrite_epd(epd, 0x06C, value, value)
+def f_setNextPlayerUnit(epd, value):
+    f_dwwrite_epd(epd, 0x06C, value)
 
-def getSubUnit(epd):
-    return f_dwread_epd(epd + 0x070 // 4, 0x070 % 4)
+def f_getSubUnit(epd):
+    return f_dwread_epd(epd + 0x070 // 4)
 
-def setSubUnit(epd, value):
-    f_dwwrite_epd(epd, 0x070, value, value)
+def f_setSubUnit(epd, value):
+    f_dwwrite_epd(epd, 0x070, value)
 
-def getOrderQueueHead(epd):
-    return f_dwread_epd(epd + 0x074 // 4, 0x074 % 4)
+def f_getOrderQueueHead(epd):
+    return f_dwread_epd(epd + 0x074 // 4)
 
-def setOrderQueueHead(epd, value):
-    f_dwwrite_epd(epd, 0x074, value, value)
+def f_setOrderQueueHead(epd, value):
+    f_dwwrite_epd(epd, 0x074, value)
 
-def getOrderQueueTail(epd):
-    return f_dwread_epd(epd + 0x078 // 4, 0x078 % 4)
+def f_getOrderQueueTail(epd):
+    return f_dwread_epd(epd + 0x078 // 4)
 
-def setOrderQueueTail(epd, value):
-    f_dwwrite_epd(epd, 0x078, value, value)
+def f_setOrderQueueTail(epd, value):
+    f_dwwrite_epd(epd, 0x078, value)
 
-def getAutoTargetUnit(epd):
-    return f_dwread_epd(epd + 0x07C // 4, 0x07C % 4)
+def f_getAutoTargetUnit(epd):
+    return f_dwread_epd(epd + 0x07C // 4)
 
-def setAutoTargetUnit(epdepd, value):
-    f_dwread_epd(epd + 0x07C // 4, 0x07C % 4)
+def f_setAutoTargetUnit(epdepd, value):
+    f_dwread_epd(epd + 0x07C // 4)
 
-def getConnectedUnit(epd):
-    return f_dwread_epd(epd + 0x080 // 4, 0x080 % 4)
+def f_getConnectedUnit(epd):
+    return f_dwread_epd(epd + 0x080 // 4)
 
-def setConnectedUnit(epd, value):
-    f_dwwrite_epd(epd, 0x080, value, value)
+def f_setConnectedUnit(epd, value):
+    f_dwwrite_epd(epd, 0x080, value)
 
-def getOrderQueueCount(epd):
+def f_getOrderQueueCount(epd):
     return f_bread_epd(epd + 0x084 // 4, 0x084 % 4)
 
-def setOrderQueueCount(epd, value):
+def f_setOrderQueueCount(epd, value):
     f_bwrite_epd(epd + 0x084 // 4, 0x084 % 4, value)
 
-def getOrderQueueTimer(epd):
+def f_getOrderQueueTimer(epd):
     return f_bread_epd(epd + 0x085 // 4, 0x085 % 4)
 
-def setOrderQueueTimer(epd, value):
+def f_setOrderQueueTimer(epd, value):
     f_bwrite_epd(epd + 0x085 // 4, 0x085 % 4, value)
 
-def get_unknown_0x086(epd):
+def f_getUnknown_0x086(epd):
     return f_bread_epd(epd + 0x086 // 4, 0x086 % 4)
 
-def set_unknown_0x086(epd, value):
+def f_set_unknown_0x086(epd, value):
     f_bwrite_epd(epd + 0x086 // 4, 0x086 % 4, value)
 
-def getAttackNotifyTimer(epd):
+def f_getAttackNotifyTimer(epd):
     return f_bread_epd(epd + 0x087 // 4, 0x087 % 4)
 
-def setAttackNotifyTimer(epd, value):
+def f_setAttackNotifyTimer(epd, value):
     f_bwrite_epd(epd + 0x087 // 4, 0x087 % 4, value)
 
-def getPreviousUnitType(epd):
+def f_getPreviousUnitType(epd):
     return f_wread_epd(epd + 0x088 // 4, 0x088 % 4)
 
-def setPreviousUnitType(epd, value):
+def f_setPreviousUnitType(epd, value):
     f_wwrite_epd(epd + 0x088 // 4, 0x088 % 4, value)
 
-def getLastEventTimer(epd):
+def f_getLastEventTimer(epd):
     return f_bread_epd(epd + 0x08A // 4, 0x08A % 4)
 
-def setLastEventTimer(epd, value):
+def f_setLastEventTimer(epd, value):
     f_bwrite_epd(epd + 0x08A // 4, 0x08A % 4, value)
 
-def getLastEventColor(epd):
+def f_getLastEventColor(epd):
     return f_bread_epd(epd + 0x08B // 4, 0x08B % 4)
 
-def setLastEventColor(epd, value):
+def f_setLastEventColor(epd, value):
     f_bwrite_epd(epd + 0x08B // 4, 0x08B % 4, value)
 
-def get_unused_0x08C(epd):
+def f_getUnused_0x08C(epd):
     return f_wread_epd(epd + 0x08C // 4, 0x08C % 4)
 
-def set_unused_0x08C(epd, value):
+def f_set_unused_0x08C(epd, value):
     f_wwrite_epd(epd + 0x08C // 4, 0x08C % 4, value)
 
-def getRankIncrease(epd):
+def f_getRankIncrease(epd):
     return f_bread_epd(epd + 0x08E // 4, 0x08E % 4)
 
-def setRankIncrease(epd, value):
+def f_setRankIncrease(epd, value):
     f_bwrite_epd(epd + 0x08E // 4, 0x08E % 4, value)
 
-def getKillCount(epd):
+def f_getKillCount(epd):
     return f_bread_epd(epd + 0x08F // 4, 0x08F % 4)
 
-def setKillCount(epd, value):
+def f_setKillCount(epd, value):
     f_bwrite_epd(epd + 0x08F // 4, 0x08F % 4, value)
 
-def getLastAttackingPlayer(epd):
+def f_getLastAttackingPlayer(epd):
     return f_bread_epd(epd + 0x090 // 4, 0x090 % 4)
 
-def setLastAttackingPlayer(epd, value):
+def f_setLastAttackingPlayer(epd, value):
     f_bwrite_epd(epd + 0x090 // 4, 0x090 % 4, value)
 
-def getSecondaryOrderTimer(epd):
+def f_getSecondaryOrderTimer(epd):
     return f_bread_epd(epd + 0x091 // 4, 0x091 % 4)
 
-def setSecondaryOrderTimer(epd, value):
+def f_setSecondaryOrderTimer(epd, value):
     f_bwrite_epd(epd + 0x091 // 4, 0x091 % 4, value)
 
-def getAIActionFlag(epd):
+def f_getAIActionFlag(epd):
     return f_bread_epd(epd + 0x092 // 4, 0x092 % 4)
 
-def setAIActionFlag(epd, value):
+def f_setAIActionFlag(epd, value):
     f_bwrite_epd(epd + 0x092 // 4, 0x092 % 4, value)
 
-def getUserActionFlags(epd):
+def f_getUserActionFlags(epd):
     return f_bread_epd(epd + 0x093 // 4, 0x093 % 4)
 
-def setUserActionFlags(epd, value):
+def f_setUserActionFlags(epd, value):
     f_bwrite_epd(epd + 0x093 // 4, 0x093 % 4, value)
 
-def getCurrentButtonSet(epd):
+def f_getCurrentButtonSet(epd):
     return f_wwrite_epd(epd + 0x094 // 4, 0x094 % 4, value)
 
-def setCurrentButtonSet(epd, value):
+def f_setCurrentButtonSet(epd, value):
     f_wwrite_epd(0x094 // 4, 0x094 % 4, value)
 
-def getIsCloaked(epd):
+def f_getIsCloaked(epd):
     return f_boolread_epd(epd + 0x096 // 4, 0x096 % 4)
 
-def setIsCloaked(epd, value):
+def f_setIsCloaked(epd, value):
     f_boolwrite_epd(epd + 0x096 // 4, 0x096 % 4, value)
 
-def getMovementState(epd):
+def f_getMovementState(epd):
     return f_UnitMovementStateread_epd(epd + 0x097 // 4, 0x097 % 4)
 
-def setMovementState(epd, value):
+def f_setMovementState(epd, value):
     f_UnitMovementStatewrite_epd(epd + 0x097 // 4, 0x097 % 4, value)
 
-def getBuildQueue_1(epd):
+def f_getBuildQueue1(epd):
     return f_wread_epd(epd + 0x098 // 4, 0x098 % 4)
 
-def setBuildQueue_1(epd, value):
+def f_setBuildQueue1(epd, value):
     f_wwrite_epd(epd + 0x098 // 4, 0x098 % 4, value)
 
-def getBuildQueue_2(epd):
+def f_getBuildQueue2(epd):
     return f_wread_epd(epd + 0x09A // 4, 0x09A % 4)
 
-def setBuildQueue_2(epd, value):
+def f_setBuildQueue2(epd, value):
     f_wwrite_epd(epd + 0x09A // 4, 0x09A % 4, value)
 
-def getBuildQueue_3(epd):
+def f_getBuildQueue3(epd):
     return f_wread_epd(epd + 0x09C // 4, 0x09C % 4)
 
-def setBuildQueue_3(epd, value):
+def f_setBuildQueue3(epd, value):
     f_wwrite_epd(epd + 0x09C // 4, 0x09C % 4, value)
 
-def getBuildQueue_4(epd):
+def f_getBuildQueue4(epd):
     return f_wread_epd(epd + 0x09E // 4, 0x09E % 4)
 
-def setBuildQueue_4(epd, value):
+def f_setBuildQueue4(epd, value):
     f_wwrite_epd(epd + 0x09E // 4, 0x09E % 4, value)
 
-def getBuildQueue_5(epd):
+def f_getBuildQueue5(epd):
     return f_wread_epd(epd + 0x0A0 // 4, 0x0A0 % 4)
 
-def setBuildQueue_5(epd, value):
+def f_setBuildQueue5(epd, value):
     f_wwrite_epd(epd + 0x0A0 // 4, 0x0A0 % 4, value)
 
-def getEnergy(epd):
+def f_getEnergy(epd):
     return f_wread_epd(epd + 0x0A2 // 4, 0x0A2 % 4)
 
-def setEnergy(epd, value):
+def f_setEnergy(epd, value):
     f_wwrite_epd(epd + 0x0A2 // 4, 0x0A2 % 4, value)
 
-def getBuildQueueSlot(epd):
+def f_getBuildQueueSlot(epd):
     return f_bread_epd(epd + 0x0A4 // 4, 0x0A4 % 4)
 
-def setBuildQueueSlot(epd, value):
+def f_setBuildQueueSlot(epd, value):
     f_bwrite_epd(epd + 0x0A4 // 4, 0x0A4 % 4, value)
 
-def getUniquenessIdentifier(epd):
+def f_getUniquenessIdentifier(epd):
     return f_bread_epd(epd + 0x0A5 // 4, 0x0A5 % 4)
 
-def setUniquenessIdentifier(epd, value):
+def f_setUniquenessIdentifier(epd, value):
     f_bwrite_epd(epd + 0x0A5 // 4, 0x0A5 % 4, value)
 
-def getSecondaryOrderID(epd):
+def f_getSecondaryOrderID(epd):
     return f_bread_epd(epd + 0x0A6 // 4, 0x0A6 % 4)
 
-def setSecondaryOrderID(epd, value):
+def f_setSecondaryOrderID(epd, value):
     f_bwrite_epd(epd + 0x0A6 // 4, 0x0A6 % 4, value)
 
-def getBuildingOverlayState(epd):
+def f_getBuildingOverlayState(epd):
     return f_bread_epd(epd + 0x0A7 // 4, 0x0A7 % 4)
 
-def setBuildingOverlayState(epd, value):
+def f_setBuildingOverlayState(epd, value):
     f_bwrite_epd(epd + 0x0A7 // 4, 0x0A7 % 4, value)
 
-def getHpGain(epd):
+def f_getHpGain(epd):
     return f_wread_epd(epd + 0x0A8 // 4, 0x0A8 % 4)
 
-def setHpGain(epd, value):
+def f_setHpGain(epd, value):
     f_wwrite_epd(epd + 0x0A8 // 4, 0x0A8 % 4, value)
 
-def getShieldGain(epd):
+def f_getShieldGain(epd):
     return f_wread_epd(epd + 0x0AA // 4, 0x0AA % 4)
 
-def setShieldGain(epd, value):
+def f_setShieldGain(epd, value):
     f_wwrite_epd(epd + 0x0AA // 4, 0x0AA % 4, value)
 
-def getRemainingBuildTime(epd):
+def f_getRemainingBuildTime(epd):
     return f_wread_epd(epd + 0x0AC // 4, 0x0AC % 4)
 
-def setRemainingBuildTime(epd, value):
+def f_setRemainingBuildTime(epd, value):
     f_wwrite_epd(epd + 0x0AC // 4, 0x0AC % 4, value)
 
-def getPreviousHP(epd):
+def f_getPreviousHP(epd):
     return f_wread_epd(epd + 0x0AE // 4, 0x0AE % 4)
 
-def setPreviousHP(epd, value):
+def f_setPreviousHP(epd, value):
     f_wwrite_epd(epd + 0x0AE // 4, 0x0AE % 4, value)
 
-def getLoadedUnitIndex_1(epd):
+def f_getLoadedUnitIndex1(epd):
     return f_wread_epd(epd + 0x0B0 // 4, 0x0B0 % 4)
 
-def setLoadedUnitIndex_1(epd, value):
+def f_setLoadedUnitIndex1(epd, value):
     f_wwrite_epd(epd + 0x0B0 // 4, 0x0B0 % 4, value)
 
-def getLoadedUnitIndex_2(epd):
+def f_getLoadedUnitIndex2(epd):
     return f_wread_epd(epd + 0x0B2 // 4, 0x0B2 % 4)
 
-def setLoadedUnitIndex_2(epd, value):
+def f_setLoadedUnitIndex2(epd, value):
     f_wwrite_epd(epd + 0x0B2 // 4, 0x0B2 % 4, value)
 
-def getLoadedUnitIndex_3(epd):
+def f_getLoadedUnitIndex3(epd):
     return f_wread_epd(epd + 0x0B4 // 4, 0x0B4 % 4)
 
-def setLoadedUnitIndex_3(epd, value):
+def f_setLoadedUnitIndex3(epd, value):
     f_wwrite_epd(epd + 0x0B4 // 4, 0x0B4 % 4, value)
 
-def getLoadedUnitIndex_4(epd):
+def f_getLoadedUnitIndex4(epd):
     return f_wread_epd(epd + 0x0B6 // 4, 0x0B6 % 4)
 
-def setLoadedUnitIndex_4(epd, value):
+def f_setLoadedUnitIndex4(epd, value):
     f_wwrite_epd(epd + 0x0B6 // 4, 0x0B6 % 4, value)
 
-def getLoadedUnitIndex_5(epd):
+def f_getLoadedUnitIndex5(epd):
     return f_wread_epd(epd + 0x0B8 // 4, 0x0B8 % 4)
 
-def setLoadedUnitIndex_5(epd, value):
+def f_setLoadedUnitIndex5(epd, value):
     f_wwrite_epd(epd + 0x0B8 // 4, 0x0B8 % 4, value)
 
-def getLoadedUnitIndex_6(epd):
+def f_getLoadedUnitIndex6(epd):
     return f_wread_epd(epd + 0x0BA // 4, 0x0BA % 4)
 
-def setLoadedUnitIndex_6(epd, value):
+def f_setLoadedUnitIndex6(epd, value):
     f_wwrite_epd(epd + 0x0BA // 4, 0x0BA % 4, value)
 
-def getLoadedUnitIndex_7(epd):
+def f_getLoadedUnitIndex7(epd):
     return f_wread_epd(epd + 0x0BC // 4, 0x0BC % 4)
 
-def setLoadedUnitIndex_7(epd, value):
+def f_setLoadedUnitIndex7(epd, value):
     f_wwrite_epd(epd + 0x0BC // 4, 0x0BC % 4, value)
 
-def getLoadedUnitIndex_8(epd):
+def f_getLoadedUnitIndex8(epd):
     return f_wread_epd(epd + 0x0BE // 4, 0x0BE % 4)
 
-def setLoadedUnitIndex_8(epd, value):
+def f_setLoadedUnitIndex8(epd, value):
     f_wwrite_epd(epd + 0x0BE // 4, 0x0BE % 4, value)
 
-def getVULTURE:spiderMineCount(epd):
+def f_getSpiderMineCount(epd):
     return f_bread_epd(epd + 0x0C0 // 4, 0x0C0 % 4)
 
-def setVULTURE:spiderMineCount(epd, value):
+def f_setSpiderMineCount(epd, value):
     f_bwrite_epd(epd + 0x0C0 // 4, 0x0C0 % 4, value)
 
-def getCARRIER_pInHanger(epd):
-    return f_dwread_epd(epd + 0x0C0 // 4, 0x0C0 % 4)
+def f_getPInHanger(epd):
+    return f_dwread_epd(epd + 0x0C0 // 4)
 
-def setCARRIER_pInHanger(epd, value):
-    f_dwwrite_epd(epd, 0x0C0, value, value)
+def f_setPInHanger(epd, value):
+    f_dwwrite_epd(epd, 0x0C0, value)
 
-def getCARRIER_pOutHanger(epd):
-    return f_dwread_epd(epd + 0x0C4 // 4, 0x0C4 % 4)
+def f_getPOutHanger(epd):
+    return f_dwread_epd(epd + 0x0C4 // 4)
 
-def setCARRIER_pOutHanger(epd, value):
-    f_dwwrite_epd(epd, 0x0C4, value, value)
+def f_setPOutHanger(epd, value):
+    f_dwwrite_epd(epd, 0x0C4, value)
 
-def getCARRIER_inHangerCount(epd):
+def f_getInHangerCount(epd):
     return f_bread_epd(epd + 0x0C8 // 4, 0x0C8 % 4)
 
-def setCARRIER_inHangerCount(epd, value):
+def f_setInHangerCount(epd, value):
     f_bwrite_epd(epd + 0x0C8 // 4, 0x0C8 % 4, value)
 
-def getCARRIER_outHangerCount(epd):
+def f_getOutHangerCount(epd):
     return f_bread_epd(epd + 0x0C9 // 4, 0x0C9 % 4)
 
-def setCARRIER_outHangerCount(epd, value):
+def f_setOutHangerCount(epd, value):
     f_bwrite_epd(epd + 0x0C9 // 4, 0x0C9 % 4, value)
 
-def getFIGHTER_parent(epd):
-    return f_dwread_epd(epd + 0x0C0 // 4, 0x0C0 % 4)
+def f_getFighterParent(epd):
+    return f_dwread_epd(epd + 0x0C0 // 4)
 
-def setFIGHTER_parent(epd, value):
-    f_dwwrite_epd(epd, 0x0C0, value, value)
+def f_setFighterParent(epd, value):
+    f_dwwrite_epd(epd, 0x0C0, value)
 
-def getFIGHTER_prev(epd):
-    return f_dwread_epd(epd + 0x0C4 // 4, 0x0C4 % 4)
+def f_getFighterPrev(epd):
+    return f_dwread_epd(epd + 0x0C4 // 4)
 
-def setFIGHTER_prev(epd, value):
-    f_dwwrite_epd(epd, 0x0C4, value, value)
+def f_setFighterPrev(epd, value):
+    f_dwwrite_epd(epd, 0x0C4, value)
 
-def getFIGHTER_next(epd):
-    return f_dwread_epd(epd + 0x0C8 // 4, 0x0C8 % 4)
+def f_getFighterNext(epd):
+    return f_dwread_epd(epd + 0x0C8 // 4)
 
-def setFIGHTER_next(epd, value):
-    f_dwwrite_epd(epd, 0x0C8, value, value)
+def f_setFighterNext(epd, value):
+    f_dwwrite_epd(epd, 0x0C8, value)
 
-def getFIGHTER_inHanger(epd):
+def f_getFighterInHanger(epd):
     return f_boolread_epd(epd + 0x0CC // 4, 0x0CC % 4)
 
-def setFIGHTER_inHanger(epd, value):
+def f_setFighterInHanger(epd, value):
     f_boolwrite_epd(epd + 0x0CC // 4, 0x0CC % 4, value)
 
-def getBEACON__unknown_00(epd):
-    return f_dwread_epd(epd + 0x0C0 // 4, 0x0C0 % 4)
+def f_getUnknown00(epd):
+    return f_dwread_epd(epd + 0x0C0 // 4)
 
-def setBEACON__unknown_00(epd, value):
-    f_dwwrite_epd(epd, 0x0C0, value, value)
+def f_setUnknown00(epd, value):
+    f_dwwrite_epd(epd, 0x0C0, value)
 
-def getBEACON__unknown_04(epd):
-    return f_dwread_epd(epd + 0x0C4 // 4, 0x0C4 % 4)
+def f_getUnknown04(epd):
+    return f_dwread_epd(epd + 0x0C4 // 4)
 
-def setBEACON__unknown_04(epd, value):
-    f_dwwrite_epd(epd, 0x0C4, value, value)
+def f_setUnknown04(epd, value):
+    f_dwwrite_epd(epd, 0x0C4, value)
 
-def getBEACON_flagSpawnFrame(epd):
-    return f_dwread_epd(epd + 0x0C8 // 4, 0x0C8 % 4)
+def f_getFlagSpawnFrame(epd):
+    return f_dwread_epd(epd + 0x0C8 // 4)
 
-def setBEACON_flagSpawnFrame(epd, value):
-    f_dwwrite_epd(epd, 0x0C8, value, value)
+def f_setFlagSpawnFrame(epd, value):
+    f_dwwrite_epd(epd, 0x0C8, value)
 
-def getBUILDING_addon(epd):
-    return f_dwread_epd(epd + 0x0C0 // 4, 0x0C0 % 4)
+def f_getAddon(epd):
+    return f_dwread_epd(epd + 0x0C0 // 4)
 
-def setBUILDING_addon(epd, value):
-    f_dwwrite_epd(epd, 0x0C0, value, value)
+def f_setAddon(epd, value):
+    f_dwwrite_epd(epd, 0x0C0, value)
 
-def getBUILDING_addonBuildType(epd):
+def f_getAddonBuildType(epd):
     return f_wread_epd(epd + 0x0C4 // 4, 0x0C4 % 4)
 
-def setBUILDING_addonBuildType(epd, value):
+def f_setAddonBuildType(epd, value):
     f_wwrite_epd(epd + 0x0C4 // 4, 0x0C4 % 4, value)
 
-def getBUILDING_upgradeResearchTime(epd):
+def f_getUpgradeResearchTime(epd):
     return f_wread_epd(epd + 0x0C6 // 4, 0x0C6 % 4)
 
-def setBUILDING_upgradeResearchTime(epd, value):
+def f_setUpgradeResearchTime(epd, value):
     f_wwrite_epd(epd + 0x0C6 // 4, 0x0C6 % 4, value)
 
-def getBUILDING_techType(epd):
+def f_getTechType(epd):
     return f_bread_epd(epd + 0x0C8 // 4, 0x0C8 % 4)
 
-def setBUILDING_techType(epd, value):
+def f_setTechType(epd, value):
     f_bwrite_epd(epd + 0x0C8 // 4, 0x0C8 % 4, value)
 
-def getBUILDING_upgradeType(epd):
+def f_getUpgradeType(epd):
     return f_bread_epd(epd + 0x0C9 // 4, 0x0C9 % 4)
 
-def setBUILDING_upgradeType(epd, value):
+def f_setUpgradeType(epd, value):
     f_bwrite_epd(epd + 0x0C9 // 4, 0x0C9 % 4, value)
 
-def getBUILDING_larvaTimer(epd):
-    return f_bread_epd(epd + 0x0CA // 4, 0x0CA % 4)
+def f_getLarvaTimer(epd):
+    return f_bread_epd(epd + 0x0CA // 4, 0x0CA % 4) // 65536 
 
-def setBUILDING_larvaTimer(epd, value):
-    f_bwrite_epd(epd + 0x0CA // 4, 0x0CA % 4, value)
+def f_setLarvaTimer(epd, value):
+    f_bwrite_epd(epd + 0x0CA // 4, 0x0CA % 4, value * 65536)
 
-def getBUILDING_landingTimer(epd):
+def f_getLandingTimer(epd):
     return f_bread_epd(epd + 0x0CB // 4, 0x0CB % 4)
 
-def setBUILDING_landingTimer(epd, value):
+def f_setLandingTimer(epd, value):
     f_bwrite_epd(epd + 0x0CB // 4, 0x0CB % 4, value)
 
-def getBUILDING_creepTimer(epd):
+def f_getCreepTimer(epd):
     return f_bread_epd(epd + 0x0CC // 4, 0x0CC % 4)
 
-def setBUILDING_creepTimer(epd, value):
+def f_setCreepTimer(epd, value):
     f_bwrite_epd(epd + 0x0CC // 4, 0x0CC % 4, value)
 
-def getBUILDING_upgradeLevel(epd):
+def f_getUpgradeLevel(epd):
     return f_bread_epd(epd + 0x0CD // 4, 0x0CD % 4)
 
-def setBUILDING_upgradeLevel(epd, value):
+def f_setUpgradeLevel(epd, value):
     f_bwrite_epd(epd + 0x0CD // 4, 0x0CD % 4, value)
 
-def getBUILDING___E(epd):
+def f_getUnknownE(epd):
     return f_wread_epd(epd + 0x0CE // 4, 0x0CE % 4)
 
-def setBUILDING___E(epd, value):
+def f_setUnknownE(epd, value):
     f_wwrite_epd(epd + 0x0CE // 4, 0x0CE % 4, value)
 
-def getWORKER_pPowerup(epd):
-    return f_dwread_epd(epd + 0x0C0 // 4, 0x0C0 % 4)
+def f_getPowerup(epd):
+    return f_dwread_epd(epd + 0x0C0 // 4)
 
-def setWORKER_pPowerup(epd, value):
-    f_dwwrite_epd(epd, 0x0C0, value, value)
+def f_setPowerup(epd, value):
+    f_dwwrite_epd(epd, 0x0C0, value)
 
-def getWORKER_targetResourceX(epd):
+def f_getTargetResourceX(epd):
     return f_wread_epd(epd + 0x0C4 // 4, 0x0C4 % 4)
 
-def setWORKER_targetResourceX(epdepd, value):
+def f_setTargetResourceX(epdepd, value):
     f_wread_epd(epd + 0x0C4 // 4, 0x0C4 % 4)
 
-def getWORKER_targetResourceY(epd):
+def f_getTargetResourceY(epd):
     return f_wread_epd(epd + 0x0C6 // 4, 0x0C6 % 4)
 
-def setWORKER_targetResourceY(epdepd, value):
+def f_setTargetResourceY(epdepd, value):
     f_wread_epd(epd + 0x0C6 // 4, 0x0C6 % 4)
 
-def getWORKER_targetResourceUnit(epd):
-    return f_dwread_epd(epd + 0x0C8 // 4, 0x0C8 % 4)
+def f_getTargetResourceUnit(epd):
+    return f_dwread_epd(epd + 0x0C8 // 4)
 
-def setWORKER_targetResourceUnit(epdepd, value):
-    f_dwread_epd(epd + 0x0C8 // 4, 0x0C8 % 4)
+def f_setTargetResourceUnit(epdepd, value):
+    f_dwread_epd(epd + 0x0C8 // 4)
 
-def getWORKER_repairResourceLossTimer(epd):
+def f_getRepairResourceLossTimer(epd):
     return f_wread_epd(epd + 0x0CC // 4, 0x0CC % 4)
 
-def setWORKER_repairResourceLossTimer(epd, value):
+def f_setRepairResourceLossTimer(epd, value):
     f_wwrite_epd(epd + 0x0CC // 4, 0x0CC % 4, value)
 
-def getWORKER_isCarryingSomething(epd):
+def f_getIsCarryingSomething(epd):
     return f_boolread_epd(epd + 0x0CE // 4, 0x0CE % 4)
 
-def setWORKER_isCarryingSomething(epd, value):
+def f_setIsCarryingSomething(epd, value):
     f_boolwrite_epd(epd + 0x0CE // 4, 0x0CE % 4, value)
 
-def getWORKER_resourceCarryCount(epd):
+def f_getResourceCarryCount(epd):
     return f_bread_epd(epd + 0x0CF // 4, 0x0CF % 4)
 
-def setWORKER_resourceCarryCount(epd, value):
+def f_setResourceCarryCount(epd, value):
     f_bwrite_epd(epd + 0x0CF // 4, 0x0CF % 4, value)
 
-def getWORKER_harvestTarget(epd):
-    return f_dwread_epd(epd + 0x0D0 // 4, 0x0D0 % 4)
+def f_getHarvestTarget(epd):
+    return f_dwread_epd(epd + 0x0D0 // 4)
 
-def setWORKER_harvestTarget(epdepd, value):
-    f_dwread_epd(epd + 0x0D0 // 4, 0x0D0 % 4)
+def f_setHarvestTarget(epdepd, value):
+    f_dwread_epd(epd + 0x0D0 // 4)
 
-def getWORKER_prevHarvestUnit(epd):
-    return f_dwread_epd(epd + 0x0D4 // 4, 0x0D4 % 4)
+def f_getPrevHarvestUnit(epd):
+    return f_dwread_epd(epd + 0x0D4 // 4)
 
-def setWORKER_prevHarvestUnit(epd, value):
-    f_dwwrite_epd(epd, 0x0D4, value, value)
+def f_setPrevHarvestUnit(epd, value):
+    f_dwwrite_epd(epd, 0x0D4, value)
 
-def getWORKER_nextHarvestUnit(epd):
-    return f_dwread_epd(epd + 0x0D8 // 4, 0x0D8 % 4)
+def f_getNextHarvestUnit(epd):
+    return f_dwread_epd(epd + 0x0D8 // 4)
 
-def setWORKER_nextHarvestUnit(epd, value):
-    f_dwwrite_epd(epd, 0x0D8, value, value)
+def f_setNextHarvestUnit(epd, value):
+    f_dwwrite_epd(epd, 0x0D8, value)
 
-def getBUILDING_RESOURCE_resourceCount(epd):
+def f_getResourceCount(epd):
     return f_wread_epd(epd + 0x0D0 // 4, 0x0D0 % 4)
 
-def setBUILDING_RESOURCE_resourceCount(epd, value):
+def f_setResourceCount(epd, value):
     f_wwrite_epd(epd + 0x0D0 // 4, 0x0D0 % 4, value)
 
-def getBUILDING_RESOURCE_resourceIscript(epd):
+def f_getResourceIscript(epd):
     return f_bread_epd(epd + 0x0D2 // 4, 0x0D2 % 4)
 
-def setBUILDING_RESOURCE_resourceIscript(epd, value):
+def f_setResourceIscript(epd, value):
     f_bwrite_epd(epd + 0x0D2 // 4, 0x0D2 % 4, value)
 
-def getBUILDING_RESOURCE_gatherQueueCount(epd):
+def f_getGatherQueueCount(epd):
     return f_bread_epd(epd + 0x0D3 // 4, 0x0D3 % 4)
 
-def setBUILDING_RESOURCE_gatherQueueCount(epd, value):
+def f_setGatherQueueCount(epd, value):
     f_bwrite_epd(epd + 0x0D3 // 4, 0x0D3 % 4, value)
 
-def getBUILDING_RESOURCE_nextGatherer(epd):
-    return f_dwread_epd(epd + 0x0D4 // 4, 0x0D4 % 4)
+def f_getNextGatherer(epd):
+    return f_dwread_epd(epd + 0x0D4 // 4)
 
-def setBUILDING_RESOURCE_nextGatherer(epd, value):
-    f_dwwrite_epd(epd, 0x0D4, value, value)
+def f_setNextGatherer(epd, value):
+    f_dwwrite_epd(epd, 0x0D4, value)
 
-def getBUILDING_RESOURCE_resourceGroup(epd):
+def f_getResourceGroup(epd):
     return f_bread_epd(epd + 0x0D8 // 4, 0x0D8 % 4)
 
-def setBUILDING_RESOURCE_resourceGroup(epd, value):
+def f_setResourceGroup(epd, value):
     f_bwrite_epd(epd + 0x0D8 // 4, 0x0D8 % 4, value)
 
-def getBUILDING_RESOURCE_resourceBelongsToAI(epd):
+def f_getResourceBelongsToAI(epd):
     return f_bread_epd(epd + 0x0D9 // 4, 0x0D9 % 4)
 
-def setBUILDING_RESOURCE_resourceBelongsToAI(epd, value):
+def f_setResourceBelongsToAI(epd, value):
     f_bwrite_epd(epd + 0x0D9 // 4, 0x0D9 % 4, value)
 
-def getBUILDING_NYDUS_exit(epd):
-    return f_dwread_epd(epd + 0x0D0 // 4, 0x0D0 % 4)
+def f_getNydusExit(epd):
+    return f_dwread_epd(epd + 0x0D0 // 4)
 
-def setBUILDING_NYDUS_exit(epd, value):
-    f_dwwrite_epd(epd, 0x0D0, value, value)
+def f_setNydusExit(epd, value):
+    f_dwwrite_epd(epd, 0x0D0, value)
 
-def getBUILDING_GHOST_nukeDot(epd):
-    return f_dwread_epd(epd + 0x0D0 // 4, 0x0D0 % 4)
+def f_getGhostNukeDot(epd):
+    return f_dwread_epd(epd + 0x0D0 // 4)
 
-def setBUILDING_GHOST_nukeDot(epd, value):
-    f_dwwrite_epd(epd, 0x0D0, value, value)
+def f_setGhostNukeDot(epd, value):
+    f_dwwrite_epd(epd, 0x0D0, value)
 
-def getBUILDING_PYLON_pPowerTemplate(epd):
-    return f_dwread_epd(epd + 0x0D0 // 4, 0x0D0 % 4)
+def f_getPylonpPowerTemplate(epd):
+    return f_dwread_epd(epd + 0x0D0 // 4)
 
-def setBUILDING_PYLON_pPowerTemplate(epd, value):
-    f_dwwrite_epd(epd, 0x0D0, value, value)
+def f_setPylonpPowerTemplate(epd, value):
+    f_dwwrite_epd(epd, 0x0D0, value)
 
-def getBUILDING_SILO_pNuke(epd):
-    return f_dwread_epd(epd + 0x0D0 // 4, 0x0D0 % 4)
+def f_getSiloNuke(epd):
+    return f_dwread_epd(epd + 0x0D0 // 4)
 
-def setBUILDING_SILO_pNuke(epd, value):
-    f_dwwrite_epd(epd, 0x0D0, value, value)
+def f_setSiloNuke(epd, value):
+    f_dwwrite_epd(epd, 0x0D0, value)
 
-def getBUILDING_SILO_bReady(epd):
+def f_getSiloReady(epd):
     return f_boolread_epd(epd + 0x0D4 // 4, 0x0D4 % 4)
 
-def setBUILDING_SILO_bReady(epd, value):
+def f_setSiloReady(epd, value):
     f_boolwrite_epd(epd + 0x0D4 // 4, 0x0D4 % 4, value)
 
-def getBUILDING_HATCHERY_harvestValueLeft(epd):
+def f_getHatcheryHarvestValueLeft(epd):
     return f_wread_epd(epd + 0x0D0 // 4, 0x0D0 % 4)
 
-def setBUILDING_HATCHERY_harvestValueLeft(epd, value):
+def f_setHatcheryHarvestValueLeft(epd, value):
     f_wwrite_epd(epd + 0x0D0 // 4, 0x0D0 % 4, value)
 
-def getBUILDING_HATCHERY_harvestValueTop(epd):
+def f_getHatcheryHarvestValueTop(epd):
     return f_wread_epd(epd + 0x0D2 // 4, 0x0D2 % 4)
 
-def setBUILDING_HATCHERY_harvestValueTop(epd, value):
+def f_setHatcheryHarvestValueTop(epd, value):
     f_wwrite_epd(epd + 0x0D2 // 4, 0x0D2 % 4, value)
 
-def getBUILDING_HATCHERY_harvestValueRight(epd):
+def f_getHatcheryHarvestValueRight(epd):
     return f_wread_epd(epd + 0x0D4 // 4, 0x0D4 % 4)
 
-def setBUILDING_HATCHERY_harvestValueRight(epd, value):
+def f_setHatcheryHarvestValueRight(epd, value):
     f_wwrite_epd(epd + 0x0D4 // 4, 0x0D4 % 4, value)
 
-def getBUILDING_HATCHERY_harvestValueBottom(epd):
+def f_getHatcheryHarvestValueBottom(epd):
     return f_wread_epd(epd + 0x0D6 // 4, 0x0D6 % 4)
 
-def setBUILDING_HATCHERY_harvestValueBottom(epd, value):
+def f_setHatcheryHarvestValueBottom(epd, value):
     f_wwrite_epd(epd + 0x0D6 // 4, 0x0D6 % 4, value)
 
-def getBUILDING_POWERUP_originX(epd):
+def f_getOriginX(epd):
     return f_wread_epd(epd + 0x0D0 // 4, 0x0D0 % 4)
 
-def setBUILDING_POWERUP_originX(epd, value):
+def f_setOriginX(epd, value):
     f_wwrite_epd(epd + 0x0D0 // 4, 0x0D0 % 4, value)
 
-def getBUILDING_POWERUP_originY(epd):
+def f_getOriginY(epd):
     return f_wread_epd(epd + 0x0D2 // 4, 0x0D2 % 4)
 
-def setBUILDING_POWERUP_originY(epd, value):
+def f_setOriginY(epd, value):
     f_wwrite_epd(epd + 0x0D2 // 4, 0x0D2 % 4, value)
 
-def getStatusFlags(epd):
+def f_getStatusFlags(epd):
     return f_statusFlagsread_epd(epd + 0x0DC // 4, 0x0DC % 4)
 
-def setStatusFlags(epd, value):
+def f_setStatusFlags(epd, value):
     f_statusFlagswrite_epd(epd + 0x0DC // 4, 0x0DC % 4, value)
 
-def getResourceType(epd):
+def f_getResourceType(epd):
     return f_bread_epd(epd + 0x0E0 // 4, 0x0E0 % 4)
 
-def setResourceType(epd, value):
+def f_setResourceType(epd, value):
     f_bwrite_epd(epd + 0x0E0 // 4, 0x0E0 % 4, value)
 
-def getWireframeRandomizer(epd):
+def f_getWireframeRandomizer(epd):
     return f_bread_epd(epd + 0x0E1 // 4, 0x0E1 % 4)
 
-def setWireframeRandomizer(epd, value):
+def f_setWireframeRandomizer(epd, value):
     f_bwrite_epd(epd + 0x0E1 // 4, 0x0E1 % 4, value)
 
-def getSecondaryOrderState(epd):
+def f_getSecondaryOrderState(epd):
     return f_bread_epd(epd + 0x0E2 // 4, 0x0E2 % 4)
 
-def setSecondaryOrderState(epd, value):
+def f_setSecondaryOrderState(epd, value):
     f_bwrite_epd(epd + 0x0E2 // 4, 0x0E2 % 4, value)
 
-def getRecentOrderTimer(epd):
+def f_getRecentOrderTimer(epd):
     return f_bread_epd(epd + 0x0E3 // 4, 0x0E3 % 4)
 
-def setRecentOrderTimer(epd, value):
+def f_setRecentOrderTimer(epd, value):
     f_bwrite_epd(epd + 0x0E3 // 4, 0x0E3 % 4, value)
 
-def getVisibilityStatus(epd):
-    return f_dwread_epd(epd + 0x0E4 // 4, 0x0E4 % 4)
+def f_getVisibilityStatus(epd):
+    return f_dwread_epd(epd + 0x0E4 // 4)
 
-def setVisibilityStatus(epd, value):
-    f_dwwrite_epd(epd, 0x0E4, value, value)
+def f_setVisibilityStatus(epd, value):
+    f_dwwrite_epd(epd, 0x0E4, value)
 
-def getSecondaryOrderPositionX(epd):
+def f_getSecondaryOrderPositionX(epd):
     return f_wread_epd(epd + 0x0E8 // 4, 0x0E8 % 4)
 
-def setSecondaryOrderPositionX(epd, value):
+def f_setSecondaryOrderPositionX(epd, value):
     f_wwrite_epd(epd + 0x0E8 // 4, 0x0E8 % 4, value)
 
-def getSecondaryOrderPositionY(epd):
+def f_getSecondaryOrderPositionY(epd):
     return f_wread_epd(epd + 0x0EA // 4, 0x0EA % 4)
 
-def setSecondaryOrderPositionY(epd, value):
+def f_setSecondaryOrderPositionY(epd, value):
     f_wwrite_epd(epd + 0x0EA // 4, 0x0EA % 4, value)
 
-def getCurrentBuildUnit(epd):
-    return f_dwread_epd(epd + 0x0EC // 4, 0x0EC % 4)
+def f_getCurrentBuildUnit(epd):
+    return f_dwread_epd(epd + 0x0EC // 4)
 
-def setCurrentBuildUnit(epd, value):
-    f_dwwrite_epd(epd, 0x0EC, value, value)
+def f_setCurrentBuildUnit(epd, value):
+    f_dwwrite_epd(epd, 0x0EC, value)
 
-def getPreviousBurrowedUnit(epd):
-    return f_dwread_epd(epd + 0x0F0 // 4, 0x0F0 % 4)
+def f_getPreviousBurrowedUnit(epd):
+    return f_dwread_epd(epd + 0x0F0 // 4)
 
-def setPreviousBurrowedUnit(epd, value):
-    f_dwwrite_epd(epd, 0x0F0, value, value)
+def f_setPreviousBurrowedUnit(epd, value):
+    f_dwwrite_epd(epd, 0x0F0, value)
 
-def getNextBurrowedUnit(epd):
-    return f_dwread_epd(epd + 0x0F4 // 4, 0x0F4 % 4)
+def f_getNextBurrowedUnit(epd):
+    return f_dwread_epd(epd + 0x0F4 // 4)
 
-def setNextBurrowedUnit(epd, value):
-    f_dwwrite_epd(epd, 0x0F4, value, value)
+def f_setNextBurrowedUnit(epd, value):
+    f_dwwrite_epd(epd, 0x0F4, value)
 
-def getRALLY_positionX(epd):
+def f_getRallyPositionX(epd):
     return f_wread_epd(epd + 0x0F8 // 4, 0x0F8 % 4)
 
-def setRALLY_positionX(epd, value):
+def f_setRallyPositionX(epd, value):
     f_wwrite_epd(epd + 0x0F8 // 4, 0x0F8 % 4, value)
 
-def getRALLY_positionY(epd):
+def f_getRallyPositionY(epd):
     return f_wread_epd(epd + 0x0FA // 4, 0x0FA % 4)
 
-def setRALLY_positionY(epd, value):
+def f_setRallyPositionY(epd, value):
     f_wwrite_epd(epd + 0x0FA // 4, 0x0FA % 4, value)
 
-def getRALLY_unit(epd):
-    return f_dwread_epd(epd + 0x0FC // 4, 0x0FC % 4)
+def f_getRallyUnit(epd):
+    return f_dwread_epd(epd + 0x0FC // 4)
 
-def setRALLY_unit(epd, value):
-    f_dwwrite_epd(epd, 0x0FC, value, value)
+def f_setRallyUnit(epd, value):
+    f_dwwrite_epd(epd, 0x0FC, value)
 
-def getPYLON_prevPsiProvider(epd):
-    return f_dwread_epd(epd + 0x0F8 // 4, 0x0F8 % 4)
+def f_getPylonPrevPsiProvider(epd):
+    return f_dwread_epd(epd + 0x0F8 // 4)
 
-def setPYLON_prevPsiProvider(epd, value):
-    f_dwwrite_epd(epd, 0x0F8, value, value)
+def f_setPylonPrevPsiProvider(epd, value):
+    f_dwwrite_epd(epd, 0x0F8, value)
 
-def getPYLON_nextPsiProvider(epd):
-    return f_dwread_epd(epd + 0x0FC // 4, 0x0FC % 4)
+def f_getPylonNextPsiProvider(epd):
+    return f_dwread_epd(epd + 0x0FC // 4)
 
-def setPYLON_nextPsiProvider(epd, value):
-    f_dwwrite_epd(epd, 0x0FC, value, value)
+def f_setPylonNextPsiProvider(epd, value):
+    f_dwwrite_epd(epd, 0x0FC, value)
 
-def getPath(epd):
-    return f_dwread_epd(epd + 0x100 // 4, 0x100 % 4)
+def f_getPath(epd):
+    return f_dwread_epd(epd + 0x100 // 4)
 
-def setPath(epd, value):
-    f_dwwrite_epd(epd, 0x100, value, value)
+def f_setPath(epd, value):
+    f_dwwrite_epd(epd, 0x100, value)
 
-def getPathingCollisionInterval(epd):
+def f_getPathingCollisionInterval(epd):
     return f_bread_epd(epd + 0x104 // 4, 0x104 % 4)
 
-def setPathingCollisionInterval(epd, value):
+def f_setPathingCollisionInterval(epd, value):
     f_bwrite_epd(epd + 0x104 // 4, 0x104 % 4, value)
 
-def getPathingFlags(epd):
+def f_getPathingFlags(epd):
     return f_bread_epd(epd + 0x105 // 4, 0x105 % 4)
 
-def setPathingFlags(epd, value):
+def f_setPathingFlags(epd, value):
     f_bwrite_epd(epd + 0x105 // 4, 0x105 % 4, value)
 
-def get_unused_0x106(epd):
+def f_get106Flag(epd):
     return f_bread_epd(epd + 0x106 // 4, 0x106 % 4)
 
-def set_unused_0x106(epd, value):
+def f_set106(epd, value):
     f_bwrite_epd(epd + 0x106 // 4, 0x106 % 4, value)
 
-def getIsBeingHealed(epd):
+def f_getIsBeingHealed(epd):
     return f_boolread_epd(epd + 0x107 // 4, 0x107 % 4)
 
-def setIsBeingHealed(epd, value):
+def f_setIsBeingHealed(epd, value):
     f_boolwrite_epd(epd + 0x107 // 4, 0x107 % 4, value)
 
-def getContourBoundsLeft(epd):
+def f_getContourBoundsLeft(epd):
     return f_wread_epd(epd + 0x108 // 4, 0x108 % 4)
 
-def setContourBoundsLeft(epd, value):
+def f_setContourBoundsLeft(epd, value):
     f_wwrite_epd(epd + 0x108 // 4, 0x108 % 4, value)
 
-def getContourBoundsTop(epd):
+def f_getContourBoundsTop(epd):
     return f_wread_epd(epd + 0x10A // 4, 0x10A % 4)
 
-def setContourBoundsTop(epd, value):
+def f_setContourBoundsTop(epd, value):
     f_wwrite_epd(epd + 0x10A // 4, 0x10A % 4, value)
 
-def getContourBoundsRight(epd):
+def f_getContourBoundsRight(epd):
     return f_wread_epd(epd + 0x10C // 4, 0x10C % 4)
 
-def setContourBoundsRight(epd, value):
+def f_setContourBoundsRight(epd, value):
     f_wwrite_epd(epd + 0x10C // 4, 0x10C % 4, value)
 
-def getContourBoundsBottom(epd):
+def f_getContourBoundsBottom(epd):
     return f_wread_epd(epd + 0x10E // 4, 0x10E % 4)
 
-def setContourBoundsBottom(epd, value):
+def f_setContourBoundsBottom(epd, value):
     f_wwrite_epd(epd + 0x10E // 4, 0x10E % 4, value)
 
-def getSTATUS_removeTimer(epd):
+def f_getRemoveTimer(epd):
     return f_wread_epd(epd + 0x110 // 4, 0x110 % 4)
 
-def setSTATUS_removeTimer(epd, value):
+def f_setRemoveTimer(epd, value):
     f_wwrite_epd(epd + 0x110 // 4, 0x110 % 4, value)
 
-def getSTATUS_defenseMatrixDamage(epd):
+def f_getDefenseMatrixDamage(epd):
     return f_wread_epd(epd + 0x112 // 4, 0x112 % 4)
 
-def setSTATUS_defenseMatrixDamage(epd, value):
+def f_setDefenseMatrixDamage(epd, value):
     f_wwrite_epd(epd + 0x112 // 4, 0x112 % 4, value)
 
-def getSTATUS_defenseMatrixTimer(epd):
+def f_getDefenseMatrixTimer(epd):
     return f_bread_epd(epd + 0x114 // 4, 0x114 % 4)
 
-def setSTATUS_defenseMatrixTimer(epd, value):
+def f_setDefenseMatrixTimer(epd, value):
     f_bwrite_epd(epd + 0x114 // 4, 0x114 % 4, value)
 
-def getSTATUS_stimTimer(epd):
-    return f_bread_epd(epd + 0x115 // 4, 0x115 % 4)
+def f_getStimTimer(epd):
+    return f_bread_epd(epd + 0x115 // 4, 0x115 % 4) // 256
 
-def setSTATUS_stimTimer(epd, value):
-    f_bwrite_epd(epd + 0x115 // 4, 0x115 % 4, value)
+def f_setStimTimer(epd, value):
+    f_bwrite_epd(epd + 0x115 // 4, 0x115 % 4, value * 256)
 
-def getSTATUS_ensnareTimer(epd):
+def f_getEnsnareTimer(epd):
     return f_bread_epd(epd + 0x116 // 4, 0x116 % 4)
 
-def setSTATUS_ensnareTimer(epd, value):
+def f_setEnsnareTimer(epd, value):
     f_bwrite_epd(epd + 0x116 // 4, 0x116 % 4, value)
 
-def getSTATUS_lockdownTimer(epd):
+def f_getLockdownTimer(epd):
     return f_bread_epd(epd + 0x117 // 4, 0x117 % 4)
 
-def setSTATUS_lockdownTimer(epd, value):
+def f_setLockdownTimer(epd, value):
     f_bwrite_epd(epd + 0x117 // 4, 0x117 % 4, value)
 
-def getSTATUS_irradiateTimer(epd):
+def f_getIrradiateTimer(epd):
     return f_bread_epd(epd + 0x118 // 4, 0x118 % 4)
 
-def setSTATUS_irradiateTimer(epd, value):
+def f_setIrradiateTimer(epd, value):
     f_bwrite_epd(epd + 0x118 // 4, 0x118 % 4, value)
 
-def getSTATUS_stasisTimer(epd):
+def f_getStasisTimer(epd):
     return f_bread_epd(epd + 0x119 // 4, 0x119 % 4)
 
-def setSTATUS_stasisTimer(epd, value):
+def f_setStasisTimer(epd, value):
     f_bwrite_epd(epd + 0x119 // 4, 0x119 % 4, value)
 
-def getSTATUS_plagueTimer(epd):
+def f_getPlagueTimer(epd):
     return f_bread_epd(epd + 0x11A // 4, 0x11A % 4)
 
-def setSTATUS_plagueTimer(epd, value):
+def f_setPlagueTimer(epd, value):
     f_bwrite_epd(epd + 0x11A // 4, 0x11A % 4, value)
 
-def getSTATUS_stormTimer(epd):
+def f_getStormTimer(epd):
     return f_bread_epd(epd + 0x11B // 4, 0x11B % 4)
 
-def setSTATUS_stormTimer(epd, value):
+def f_setStormTimer(epd, value):
     f_bwrite_epd(epd + 0x11B // 4, 0x11B % 4, value)
 
-def getSTATUS_irradiatedBy(epd):
-    return f_dwread_epd(epd + 0x11C // 4, 0x11C % 4)
+def f_getIrradiatedBy(epd):
+    return f_dwread_epd(epd + 0x11C // 4)
 
-def setSTATUS_irradiatedBy(epd, value):
-    f_dwwrite_epd(epd, 0x11C, value, value)
+def f_setIrradiatedBy(epd, value):
+    f_dwwrite_epd(epd, 0x11C, value)
 
-def getSTATUS_irradiatePlayerID(epd):
+def f_getIrradiatePlayerID(epd):
     return f_bread_epd(epd + 0x120 // 4, 0x120 % 4)
 
-def setSTATUS_irradiatePlayerID(epd, value):
+def f_setIrradiatePlayerID(epd, value):
     f_bwrite_epd(epd + 0x120 // 4, 0x120 % 4, value)
 
-def getSTATUS_parasiteFlags(epd):
+def f_getParasiteFlags(epd):
     return f_bread_epd(epd + 0x121 // 4, 0x121 % 4)
 
-def setSTATUS_parasiteFlags(epd, value):
+def f_setParasiteFlags(epd, value):
     f_bwrite_epd(epd + 0x121 // 4, 0x121 % 4, value)
 
-def getSTATUS_cycleCounter(epd):
+def f_getCycleCounter(epd):
     return f_bread_epd(epd + 0x122 // 4, 0x122 % 4)
 
-def setSTATUS_cycleCounter(epd, value):
+def f_setCycleCounter(epd, value):
     f_bwrite_epd(epd + 0x122 // 4, 0x122 % 4, value)
 
-def getSTATUS_isBlind(epd):
+def f_getIsBlind(epd):
     return f_boolread_epd(epd + 0x123 // 4, 0x123 % 4)
 
-def setSTATUS_isBlind(epd, value):
+def f_setIsBlind(epd, value):
     f_boolwrite_epd(epd + 0x123 // 4, 0x123 % 4, value)
 
-def getSTATUS_maelstromTimer(epd):
+def f_getMaelstromTimer(epd):
     return f_bread_epd(epd + 0x124 // 4, 0x124 % 4)
 
-def setSTATUS_maelstromTimer(epd, value):
+def f_setMaelstromTimer(epd, value):
     f_bwrite_epd(epd + 0x124 // 4, 0x124 % 4, value)
 
-def getSTATUS__unused_0x125(epd):
+def f_getUnused_0x125(epd):
     return f_bread_epd(epd + 0x125 // 4, 0x125 % 4)
 
-def setSTATUS__unused_0x125(epd, value):
+def f_set_unused_0x125(epd, value):
     f_bwrite_epd(epd + 0x125 // 4, 0x125 % 4, value)
 
-def getSTATUS_acidSporeCount(epd):
+def f_getAcidSporeCount(epd):
     return f_bread_epd(epd + 0x126 // 4, 0x126 % 4)
 
-def setSTATUS_acidSporeCount(epd, value):
+def f_setAcidSporeCount(epd, value):
     f_bwrite_epd(epd + 0x126 // 4, 0x126 % 4, value)
 
-def getSTATUS_acidSporeTime_1(epd):
+def f_getAcidSporeTime_1(epd):
     return f_bread_epd(epd + 0x127 // 4, 0x127 % 4)
 
-def setSTATUS_acidSporeTime_1(epd, value):
+def f_setAcidSporeTime_1(epd, value):
     f_bwrite_epd(epd + 0x127 // 4, 0x127 % 4, value)
 
-def getSTATUS_acidSporeTime_2(epd):
+def f_getAcidSporeTime_2(epd):
     return f_bread_epd(epd + 0x128 // 4, 0x128 % 4)
 
-def setSTATUS_acidSporeTime_2(epd, value):
+def f_setAcidSporeTime_2(epd, value):
     f_bwrite_epd(epd + 0x128 // 4, 0x128 % 4, value)
 
-def getSTATUS_acidSporeTime_3(epd):
+def f_getAcidSporeTime_3(epd):
     return f_bread_epd(epd + 0x129 // 4, 0x129 % 4)
 
-def setSTATUS_acidSporeTime_3(epd, value):
+def f_setAcidSporeTime_3(epd, value):
     f_bwrite_epd(epd + 0x129 // 4, 0x129 % 4, value)
 
-def getSTATUS_acidSporeTime_4(epd):
+def f_getAcidSporeTime_4(epd):
     return f_bread_epd(epd + 0x12A // 4, 0x12A % 4)
 
-def setSTATUS_acidSporeTime_4(epd, value):
+def f_setAcidSporeTime_4(epd, value):
     f_bwrite_epd(epd + 0x12A // 4, 0x12A % 4, value)
 
-def getSTATUS_acidSporeTime_5(epd):
+def f_getAcidSporeTime_5(epd):
     return f_bread_epd(epd + 0x12B // 4, 0x12B % 4)
 
-def setSTATUS_acidSporeTime_5(epd, value):
+def f_setAcidSporeTime_5(epd, value):
     f_bwrite_epd(epd + 0x12B // 4, 0x12B % 4, value)
 
-def getSTATUS_acidSporeTime_6(epd):
+def f_getAcidSporeTime_6(epd):
     return f_bread_epd(epd + 0x12C // 4, 0x12C % 4)
 
-def setSTATUS_acidSporeTime_6(epd, value):
+def f_setAcidSporeTime_6(epd, value):
     f_bwrite_epd(epd + 0x12C // 4, 0x12C % 4, value)
 
-def getSTATUS_acidSporeTime_7(epd):
+def f_getAcidSporeTime_7(epd):
     return f_bread_epd(epd + 0x12D // 4, 0x12D % 4)
 
-def setSTATUS_acidSporeTime_7(epd, value):
+def f_setAcidSporeTime_7(epd, value):
     f_bwrite_epd(epd + 0x12D // 4, 0x12D % 4, value)
 
-def getSTATUS_acidSporeTime_8(epd):
+def f_getAcidSporeTime_8(epd):
     return f_bread_epd(epd + 0x12E // 4, 0x12E % 4)
 
-def setSTATUS_acidSporeTime_8(epd, value):
+def f_setAcidSporeTime_8(epd, value):
     f_bwrite_epd(epd + 0x12E // 4, 0x12E % 4, value)
 
-def getSTATUS_acidSporeTime_9(epd):
+def f_getAcidSporeTime_9(epd):
     return f_bread_epd(epd + 0x12F // 4, 0x12F % 4)
 
-def setSTATUS_acidSporeTime_9(epd, value):
+def f_setAcidSporeTime_9(epd, value):
     f_bwrite_epd(epd + 0x12F // 4, 0x12F % 4, value)
 
-def getSTATUS_bulletBehaviour3by3AttackSequence(epd):
+def f_getBulletBehaviour3by3AttackSequence(epd):
     return f_wread_epd(epd + 0x130 // 4, 0x130 % 4)
 
-def setSTATUS_bulletBehaviour3by3AttackSequence(epd, value):
+def f_setBulletBehaviour3by3AttackSequence(epd, value):
     f_wwrite_epd(epd + 0x130 // 4, 0x130 % 4, value)
 
-def get_padding_0x132(epd):
+def f_getPadding_0x132(epd):
     return f_wread_epd(epd + 0x132 // 4, 0x132 % 4)
 
-def set_padding_0x132(epd, value):
+def f_set_padding_0x132(epd, value):
     f_wwrite_epd(epd + 0x132 // 4, 0x132 % 4, value)
 
-def getPAI(epd):
-    return f_dwread_epd(epd + 0x134 // 4, 0x134 % 4)
+def f_getPAI(epd):
+    return f_dwread_epd(epd + 0x134 // 4)
 
-def setPAI(epd, value):
-    f_dwwrite_epd(epd, 0x134, value, value)
+def f_setPAI(epd, value):
+    f_dwwrite_epd(epd, 0x134, value)
 
-def getAirStrength(epd):
+def f_getAirStrength(epd):
     return f_wread_epd(epd + 0x138 // 4, 0x138 % 4)
 
-def setAirStrength(epd, value):
+def f_setAirStrength(epd, value):
     f_wwrite_epd(epd + 0x138 // 4, 0x138 % 4, value)
 
-def getGroundStrength(epd):
+def f_getGroundStrength(epd):
     return f_wread_epd(epd + 0x13A // 4, 0x13A % 4)
 
-def setGroundStrength(epd, value):
+def f_setGroundStrength(epd, value):
     f_wwrite_epd(epd + 0x13A // 4, 0x13A % 4, value)
 
-def getFINDER_Left(epd):
+def f_getFinderLeft(epd):
     return f_bread_epd(epd + 0x13C // 4, 0x13C % 4)
 
-def setFINDER_Left(epd, value):
+def f_setFinderLeft(epd, value):
     f_bwrite_epd(epd + 0x13C // 4, 0x13C % 4, value)
 
-def getFINDER_Right(epd):
+def f_getFinderRight(epd):
     return f_bread_epd(epd + 0x140 // 4, 0x140 % 4)
 
-def setFINDER_Right(epd, value):
+def f_setFinderRight(epd, value):
     f_bwrite_epd(epd + 0x140 // 4, 0x140 % 4, value)
 
-def getFINDER_Top(epd):
+def f_getFinderTop(epd):
     return f_bread_epd(epd + 0x144 // 4, 0x144 % 4)
 
-def setFINDER_Top(epd, value):
+def f_setFinderTop(epd, value):
     f_bwrite_epd(epd + 0x144 // 4, 0x144 % 4, value)
 
-def getFINDER_Bottom(epd):
+def f_getFinderBottom(epd):
     return f_bread_epd(epd + 0x148 // 4, 0x148 % 4)
 
-def setFINDER_Bottom(epd, value):
+def f_setFinderBottom(epd, value):
     f_bwrite_epd(epd + 0x148 // 4, 0x148 % 4, value)
 
-def getRepulseUnknown(epd):
+def f_getRepulseUnknown(epd):
     return f_bread_epd(epd + 0x14C // 4, 0x14C % 4)
 
-def setRepulseUnknown(epd, value):
+def f_setRepulseUnknown(epd, value):
     f_bwrite_epd(epd + 0x14C // 4, 0x14C % 4, value)
 
-def getRepulseAngle(epd):
+def f_getRepulseAngle(epd):
     return f_bread_epd(epd + 0x14D // 4, 0x14D % 4)
 
-def setRepulseAngle(epd, value):
+def f_setRepulseAngle(epd, value):
     f_bwrite_epd(epd + 0x14D // 4, 0x14D % 4, value)
 
-def getBRepMtxX(epd):
+def f_getBRepMtxX(epd):
     return f_bread_epd(epd + 0x14E // 4, 0x14E % 4)
 
-def setBRepMtxX(epd, value):
+def f_setBRepMtxX(epd, value):
     f_bwrite_epd(epd + 0x14E // 4, 0x14E % 4, value)
 
-def getBRepMtxY(epd):
+def f_getBRepMtxY(epd):
     return f_bread_epd(epd + 0x14F // 4, 0x14F % 4)
 
-def setBRepMtxY(epd, value):
+def f_setBRepMtxY(epd, value):
     f_bwrite_epd(epd + 0x14F // 4, 0x14F % 4, value)
-"""
