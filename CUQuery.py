@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 from eudplib import *
-
+ 
 @EUDFunc
 
 def f_dwwrite_epd(epd, addr, value):
@@ -10,211 +10,160 @@ def f_dwwrite_epd(epd, addr, value):
 def f_toEPD(ptr):
     return EPD(ptr)
 
-
 def f_getUnitType(epd):
     return f_wread_epd(epd + 0x064 // 4,  0x064 % 4)
-
 
 def f_setUnitType(epd, unitType):
     f_wwrite_epd(epd + 0x064 // 4,  0x064 % 4, unitType)
 
-
 def f_isUnitType(epd, unitType):
     return getUnitType(epd) == unitType
-
 
 def f_getButtonSet(epd):
     return f_wread_epd(epd + 0x094 // 4,  0x094 % 4)
 
-
 def f_getPlayerID(epd):
     return f_bread_epd(epd + 0x04C // 4,  0x04C % 4)
-
 
 def f_getEnergy(epd):
     return f_wread_epd(epd + 0x0A2 // 4,  0x0A2 % 4) // 256
 
-
 def f_setEnergy(epd, energy):
     DoActions([SetMemoryEPD(epd + 0x0A2 // 4, Add, (energy * 256) * 65536)])
-
 
 def f_hasEnergy(epd, energy):
     return getEnergy(epd) >= energy
 
-
 def f_getShields(epd):
     return f_dwread_epd(epd + 0x060 // 4)
 
-
 def f_setShields(epd, shields):
-    DoActions([SetMemoryEPD(epd + 0x060 // 4, SetTo, shields * 256)])
-
+   DoActions([SetMemoryEPD(epd + 0x060 // 4, SetTo, shields * 256)])
 
 def f_getHitpoints(epd):
     return f_dwread_epd(epd + 0x008 // 4) // 256
 
-
 def f_setHitpoints(epd, hitpoints):
     DoActions([SetMemoryEPD(epd + 0x008 // 4, SetTo, hitpoints * 256)])
-
 
 def f_getMaxHitpoint(epd):
     unitType = getUnitType(epd)
     return dwread(0x65FD00 + 9808 + unitType * 4) // 256
 
-
 def f_setPreviousHitpoints(epd, value):
     f_wwrite_epd(epd + 0x0AE // 4,  0x0AE % 4, value)
-
 
 def f_getPreviousHitpoints(epd):
     return f_wread_epd(epd + 0x0AE // 4,  0x0AE % 4)
 
-
 def f_getTopSpeed(epd):
     return f_dwread_epd(epd + 0x034 // 4)
-
 
 def f_setTopSpeed(epd, speed):
     DoActions([SetMemoryEPD(epd + 0x034 // 4, SetTo, speed)])
     DoActions([SetMemoryEPD(epd + 0x03C // 4, SetTo, speed)])
 
-
 def f_getOriginalTopSpeed(epd):
     unitType = getUnitType(epd)
     return dwread(0x6C9858 + 1696 + unitType * 4)
 
-
 def f_getAcceleration(epd):
     return f_wread_epd(epd + 0x048 // 4,  0x048 % 4)
-
 
 def f_setAcceleration(epd, acceleration):
     f_wwrite_epd(epd + 0x048 // 4,  0x048 % 4, acceleration)
 
-
 def f_getOriginalAcceleration(epd):
     unitType = getUnitType(epd)
-    return wread(0x6C9858 + 1056 + unitType * 2)
-
 
 def f_getOrder(epd):
+    return wread(0x6C9858 + 1056 + unitType * 2)
     return f_bread_epd(epd + 0x04D // 4,  0x04D % 4)
-
 
 def f_setOrder(epd, order):
     f_bwrite_epd(epd + 0x04D // 4,  0x04D % 4, order)
 
-
 def f_getSecondaryOrder(epd):
     return f_bread_epd(epd + 0x0A6 // 4,  0x0A6 % 4)
-
 
 def f_setSecondaryOrder(epd, order):
     f_bwrite_epd(epd + 0x0A6 // 4,  0x0A6 % 4, order)
 
-
 def f_getCommandCard(epd):
     return f_wread_epd(epd + 0x094 // 4,  0x094 % 4) 
-
 
 def f_setCommandCard(epd, id):
     f_wwrite_epd(epd + 0x094 // 4,  0x094 % 4, id)
 
-
 def f_get106Flag(epd):
     return f_bread_epd(epd + 0x106 // 4,  0x106 % 4)
-
 
 def f_set106Flag(epd, state):
     f_bwrite_epd(epd + 0x106 // 4,  0x106 % 4, state)
 
-
 def f_increment106Flag(epd):
     set106Flag(epd, get106Flag(epd) + 1)
-
 
 def f_get8Flag(epd):
     return  f_wread_epd(epd + 0x08C // 4,  0x08C % 4)
 
-
 def f_set8Flag(epd, state):
     f_wwrite_epd(epd + 0x08C // 4,  0x08C % 4, state)
-
 
 def f_getParasiteFlag(epd):
     return  f_bread_epd(epd + 0x121 // 4,  0x121 % 4)
 
-
 def f_setParasiteFlag(epd, flag):
     f_bwrite_epd(epd + 0x121 // 4,  0x121 % 4, flag)
-
 
 def f_getRemainingBuildTime(epd):
     return f_wread_epd(epd + 0x0AC // 4,  0x0AC % 4)
 
-
 def f_setRemainingBuildTime(epd, time):
     f_wwrite_epd(epd + 0x0AC // 4,  0x0AC % 4, time)
-
 
 def f_getSprite(epd):
     return f_dwread_epd(epd + 0x00C // 4)
 
-
 def f_getGroundWeaponCooldown(epd):
     return f_bread_epd(epd + 0x055 // 4,  0x055 % 4)
-
 
 def f_setGroundWeaponCooldown(epd, cooldown):
     f_bwrite_epd(epd + 0x055 // 4,  0x055 % 4, cooldown)
 
-
 def f_setSprite(epd, spriteID):
     DoActions([SetMemoryEPD(epd + 0x00C // 4, SetTo, spriteID)])
-
 
 def f_getPositionX(epd):
     return f_wread_epd(epd + 0x028 // 4,  0x028 % 4)
 
-
 def f_getPositionY(epd):
     return f_wread_epd(epd + 0x02A // 4,  0x02A % 4)
-
 
 def f_setPositionX(epd, x):
     f_wwrite_epd(epd + 0x028 // 4,  0x028 % 4, x)
 
-
 def f_setPositionY(epd, y):
     f_wwrite_epd(epd + 0x02A // 4,  0x02A % 4, y)
-
 
 def f_setPosition(epd, x, y):
     f_setPositionX(epd, x)
     f_setPositionY(epd, y + y*65536)
 
-
 def f_getResourceCarryCount(epd) :
     return f_bread_epd(epd + 0x0CF // 4,  0x0CF % 4)
-
 
 def f_setResourceCarryCount(epd, count) :
     f_bwrite_epd(epd + 0x0CF // 4,  0x0CF % 4, count)
 
-
 def f_getIsCarryingSomething(epd):
     return f_bread_epd(epd + 0x0CE // 4,  0x0CE % 4)
-
 
 def f_setIsCarryingSomething(epd, flag):
     f_bwrite_epd(epd + 0x0CE // 4,  0x0CE % 4, flag)
 
-
 def f_setConnectedUnit(epd, value):
     DoActions([SetMemoryEPD(epd + 0x080 // 4, SetTo, value)])
-
 
 def f_getConnectedUnit(epd):
     return f_dwread_epd(epd + 0x080 // 4)
@@ -224,10 +173,8 @@ def f_getConnectedUnit(epd):
 def f_getTargetX(epd):
     return f_wread_epd(epd + 0x058 // 4,  0x058 % 4)
 
-
 def f_getTargetY(epd):
     return f_wread_epd(epd + 0x05A // 4,  0x05A % 4)
-
 
 def f_getTargetUnitRaw(epd):
     return f_dwread_epd(epd + 0x05C // 4)
@@ -235,13 +182,11 @@ def f_getTargetUnitRaw(epd):
 def f_isOrderTargetUnitValid(epd):
     return f_getTargetUnitRaw(epd) > 0
 
-
 def f_getTargetUnit(epd):
     return EPD(f_getTargetUnitRaw(epd))
 
 def f_setTargetUnit(epd, targetUnitPtr):
     DoActions([SetMemoryEPD(epd + 0x05C // 4, SetTo, targetUnitPtr)])
-
 
 def f_getTargetResourceRaw(epd):
     return f_dwread_epd(epd + 0x0C8 // 4)
