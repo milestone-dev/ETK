@@ -165,7 +165,7 @@ function findUnitOfTypesInLocation(location, unitTypes: EUDArray, unitTypesCount
 	return 0, 0;
 }
 
-function createSingleUnit(unitType, location, playerID) {
+function createUnit(unitType, location, playerID) {
 	const epd = getNextUnitEPD();
 	const ptr = getNextUnitPtr();
 	CreateUnit(1,unitType, location, playerID);
@@ -207,7 +207,7 @@ function createOverlayForUnit(unit, imageID, removeTimer) {
 	}
 	moveReplacerLocationToUnit(unit);
 	wwrite(0x665AC0 + 1696 + 487 * 2, imageID);
-	const overlayUnit, tmp = createSingleUnit($U("Protoss Corsair"), $L("_Replacer"), $P8);
+	const overlayUnit, tmp = createUnit($U("Protoss Corsair"), $L("_Replacer"), $P8);
 	SetMemoryEPD(unit + 0x0DC / 4, SetTo, 0x00130001);
 	ETKUnit.setConnectedUnit(overlayUnit, unit);
 	if (removeTimer > 0) {
