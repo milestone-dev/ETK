@@ -1,5 +1,6 @@
 # EUD Trigger Kit
-ETK is a collection of EUD EPS functions designed for StarCraft: Brood War map creators. It aims to help you create powerful and felible maps with its accessible, well documented API.
+ETK is a collection of EUD EPS functions designed for StarCraft: Brood War map creators. It aims to help you create powerful and flexible maps by providing an accessible and well documented API. 
+
 ETK is possible thanks to [euddraft](https://github.com/phu54321/euddraft/) and is meant to be used with the powerful [EUD Editor 3](https://github.com/Buizz/EUD-Editor-3)
 
 ## Installation
