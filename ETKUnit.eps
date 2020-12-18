@@ -1,0 +1,1789 @@
+//ETKUnit.eps
+
+import TriggerEditor.ETKCommon as c;
+ 
+function toEPD(ptr) {
+    return EPD(ptr);
+}
+
+/*
+
+function getUnitType(epd) {
+    return wread_epd(epd + 0x064 / 4,  0x064 % 4);
+}
+
+function setUnitType(epd, unitType) {
+    wwrite_epd(epd + 0x064 / 4,  0x064 % 4, unitType);
+}
+
+function getButtonSet(epd) {
+    return wread_epd(epd + 0x094 / 4,  0x094 % 4);
+}
+
+function getPlayerID(epd) {
+    return bread_epd(epd + 0x04C / 4,  0x04C % 4);
+}
+
+*/
+
+// AUTO GENEREATED
+
+function getPrev(epd) {
+    return dwread_epd(epd + 0x000 / 4);
+}
+
+function setPrev(epd, value) {
+    c.dwwrite_epd(epd, 0x000, value);
+}
+
+function getNext(epd) {
+    return dwread_epd(epd + 0x004 / 4);
+}
+
+function setNext(epd, value) {
+    c.dwwrite_epd(epd, 0x004, value);
+}
+
+function getHitpoints(epd) {
+    return dwread_epd(epd + 0x008 / 4) / 256;
+}
+
+function setHitpoints(epd, hitpoints) {
+    c.dwwrite_epd(epd, 0x008, hitpoints * 256);
+}
+
+function getSprite(epd) {
+    return dwread_epd(epd + 0x00C / 4);
+}
+
+function setSprite(epd, value) {
+    c.dwwrite_epd(epd, 0x00C, value);
+}
+
+function getMoveTargetX(epd) {
+    return wread_epd(epd + 0x010 / 4, 0x010 % 4);
+}
+
+function setMoveTargetX(epd, value) {
+    wwrite_epd(epd + 0x010 / 4, 0x010 % 4);
+}
+
+function getMoveTargetY(epd) {
+    return wread_epd(epd + 0x012 / 4, 0x012 % 4);
+}
+
+function setMoveTargetY(epd, value) {
+    wwrite_epd(epd + 0x012 / 4, 0x012 % 4);
+}
+
+function getMoveTargetUnit(epd) {
+    return dwread_epd(epd + 0x014 / 4);
+}
+
+function setMoveTargetUnit(epd, value) {
+    dwwrite_epd(epd + 0x014 / 4);
+}
+
+function getNextMovementWaypointX(epd) {
+    return wread_epd(epd + 0x018 / 4, 0x018 % 4);
+}
+
+function setNextMovementWaypointX(epd, value) {
+    wwrite_epd(epd + 0x018 / 4, 0x018 % 4, value);
+}
+
+function getNextMovementWaypointY(epd) {
+    return wread_epd(epd + 0x01A / 4, 0x01A % 4);
+}
+
+function setNextMovementWaypointY(epd, value) {
+    wwrite_epd(epd + 0x01A / 4, 0x01A % 4, value);
+}
+
+function getNextTargetWaypointX(epd) {
+    return wread_epd(epd + 0x01C / 4, 0x01C % 4);
+}
+
+function setNextTargetWaypointX(epd, value) {
+    dwwrite_epd(epd + 0x01C / 4, 0x01C % 4);
+}
+
+function getNextTargetWaypointY(epd) {
+    return wread_epd(epd + 0x01E / 4, 0x01E % 4);
+}
+
+function setNextTargetWaypointY(epd, value) {
+    wwrite_epd(epd + 0x01E / 4, 0x01E % 4);
+}
+
+function getMovementFlags(epd) {
+    return bread_epd(epd + 0x020 / 4, 0x020 % 4);
+}
+
+function setMovementFlags(epd, value) {
+    bwrite_epd(epd + 0x020 / 4, 0x020 % 4, value);
+}
+
+function getCurrentDirection1(epd) {
+    return bread_epd(epd + 0x021 / 4, 0x021 % 4);
+}
+
+function setCurrentDirection1(epd, value) {
+    bwrite_epd(epd + 0x021 / 4, 0x021 % 4, value);
+}
+
+function getFlingyTurnRadius(epd) {
+    return bread_epd(epd + 0x022 / 4, 0x022 % 4);
+}
+
+function setFlingyTurnRadius(epd, value) {
+    bwrite_epd(epd + 0x022 / 4, 0x022 % 4, value);
+}
+
+function getVelocityDirection1(epd) {
+    return bread_epd(epd + 0x023 / 4, 0x023 % 4);
+}
+
+function setVelocityDirection1(epd, value) {
+    bwrite_epd(epd + 0x023 / 4, 0x023 % 4, value);
+}
+
+function getFlingyID(epd) {
+    return wread_epd(epd + 0x024 / 4, 0x024 % 4);
+}
+
+function setFlingyID(epd, value) {
+    wwrite_epd(epd + 0x024 / 4, 0x024 % 4, value);
+}
+
+function getUnknown26(epd) {
+    return bread_epd(epd + 0x026 / 4, 0x026 % 4);
+}
+
+function setUnknown26(epd, value) {
+    bwrite_epd(epd + 0x026 / 4, 0x026 % 4, value);
+}
+
+function getFlingyMovementType(epd) {
+    return bread_epd(epd + 0x027 / 4, 0x027 % 4);
+}
+
+function setFlingyMovementType(epd, value) {
+    bwrite_epd(epd + 0x027 / 4, 0x027 % 4, value);
+}
+
+function getPositionX(epd) {
+    return wread_epd(epd + 0x028 / 4, 0x028 % 4);
+}
+
+function setPositionX(epd, value) {
+    wwrite_epd(epd + 0x028 / 4, 0x028 % 4, value);
+}
+
+function getPositionY(epd) {
+    return wread_epd(epd + 0x02A / 4, 0x02A % 4);
+}
+
+function setPositionY(epd, value) {
+    wwrite_epd(epd + 0x02A / 4, 0x02A % 4, value);
+}
+
+function getHaltX(epd) {
+    return dwread_epd(epd + 0x02C / 4);
+}
+
+function setHaltX(epd, value) {
+    c.dwwrite_epd(epd, 0x02C, value);
+}
+
+function getHaltY(epd) {
+    return dwread_epd(epd + 0x030 / 4);
+}
+
+function setHaltY(epd, value) {
+    c.dwwrite_epd(epd, 0x030, value);
+}
+
+function getFlingyTopSpeed(epd) {
+    return dwread_epd(epd + 0x034 / 4);
+}
+
+function setFlingyTopSpeed(epd, value) {
+    c.dwwrite_epd(epd, 0x034, value);
+}
+
+function getCurrentSpeed1(epd) {
+    return dwread_epd(epd + 0x038 / 4);
+}
+
+function setCurrentSpeed1(epd, value) {
+    c.dwwrite_epd(epd, 0x038, value);
+}
+
+function getCurrentSpeed2(epd) {
+    return dwread_epd(epd + 0x03C / 4);
+}
+
+function setCurrentSpeed2(epd, value) {
+    c.dwwrite_epd(epd, 0x03C, value);
+}
+
+function getCurrentSpeedX(epd) {
+    return dwread_epd(epd + 0x040 / 4);
+}
+
+function setCurrentSpeedX(epd, value) {
+    c.dwwrite_epd(epd, 0x040, value);
+}
+
+function getCurrentSpeedY(epd) {
+    return dwread_epd(epd + 0x044 / 4);
+}
+
+function setCurrentSpeedY(epd, value) {
+    c.dwwrite_epd(epd, 0x044, value);
+}
+
+function getFlingyAcceleration(epd) {
+    return wread_epd(epd + 0x048 / 4, 0x048 % 4);
+}
+
+function setFlingyAcceleration(epd, value) {
+    wwrite_epd(epd + 0x048 / 4, 0x048 % 4, value);
+}
+
+function getCurrentDirection2(epd) {
+    return bread_epd(epd + 0x04A / 4, 0x04A % 4);
+}
+
+function setCurrentDirection2(epd, value) {
+    bwrite_epd(epd + 0x04A / 4, 0x04A % 4, value);
+}
+
+function getVelocityDirection2(epd) {
+    return bread_epd(epd + 0x04B / 4, 0x04B % 4);
+}
+
+function setVelocityDirection2(epd, value) {
+    bwrite_epd(epd + 0x04B / 4, 0x04B % 4, value);
+}
+
+function getPlayerID(epd) {
+    return bread_epd(epd + 0x04C / 4, 0x04C % 4);
+}
+
+function setPlayerID(epd, value) {
+    bwrite_epd(epd + 0x04C / 4, 0x04C % 4, value);
+}
+
+function getOrderID(epd) {
+    return bread_epd(epd + 0x04D / 4, 0x04D % 4);
+}
+
+function setOrderID(epd, value) {
+    bwrite_epd(epd + 0x04D / 4, 0x04D % 4, value);
+}
+
+function getOrderState(epd) {
+    return bread_epd(epd + 0x04E / 4, 0x04E % 4);
+}
+
+function setOrderState(epd, value) {
+    bwrite_epd(epd + 0x04E / 4, 0x04E % 4, value);
+}
+
+function getOrderSignal(epd) {
+    return bread_epd(epd + 0x04F / 4, 0x04F % 4);
+}
+
+function setOrderSignal(epd, value) {
+    bwrite_epd(epd + 0x04F / 4, 0x04F % 4, value);
+}
+
+function getOrderUnitType(epd) {
+    return wread_epd(epd + 0x050 / 4, 0x050 % 4);
+}
+
+function setOrderUnitType(epd, value) {
+    wwrite_epd(epd + 0x050 / 4, 0x050 % 4, value);
+}
+
+function get52Flag(epd) {
+    return wread_epd(epd + 0x052 / 4, 0x052 % 4);
+}
+
+function set52Flag(epd, value) {
+    wwrite_epd(epd + 0x052 / 4, 0x052 % 4, value);
+}
+
+function getMainOrderTimer(epd) {
+    return bread_epd(epd + 0x054 / 4, 0x054 % 4);
+}
+
+function setMainOrderTimer(epd, value) {
+    bwrite_epd(epd + 0x054 / 4, 0x054 % 4, value);
+}
+
+function getGroundWeaponCooldown(epd) {
+    return bread_epd(epd + 0x055 / 4, 0x055 % 4);
+}
+
+function setGroundWeaponCooldown(epd, value) {
+    bwrite_epd(epd + 0x055 / 4, 0x055 % 4, value);
+}
+
+function getAirWeaponCooldown(epd) {
+    return bread_epd(epd + 0x056 / 4, 0x056 % 4);
+}
+
+function setAirWeaponCooldown(epd, value) {
+    bwrite_epd(epd + 0x056 / 4, 0x056 % 4, value);
+}
+
+function getSpellCooldown(epd) {
+    return bread_epd(epd + 0x057 / 4, 0x057 % 4);
+}
+
+function setSpellCooldown(epd, value) {
+    bwrite_epd(epd + 0x057 / 4, 0x057 % 4, value);
+}
+
+function getOrderTargetX(epd) {
+    return wread_epd(epd + 0x058 / 4, 0x058 % 4);
+}
+
+function setOrderTargetX(epd, value) {
+    wread_epd(epd + 0x058 / 4, 0x058 % 4);
+}
+
+function getOrderTargetY(epd) {
+    return wread_epd(epd + 0x05A / 4, 0x05A % 4);
+}
+
+function setOrderTargetY(epd, value) {
+    wread_epd(epd + 0x05A / 4, 0x05A % 4);
+}
+
+function getOrderTargetUnit(epd) {
+    return dwread_epd(epd + 0x05C / 4);
+}
+
+function setOrderTargetUnit(epd, value) {
+    dwread_epd(epd + 0x05C / 4);
+}
+
+function getShields(epd) {
+    return dwread_epd(epd + 0x060 / 4);
+}
+
+function setShields(epd, shields) {
+    c.dwwrite_epd(epd, 0x060, shields * 256);
+}
+
+/**
+@Language.us-EN
+@Summary
+Gets the type of the unit
+@Group
+??
+@param.epd.Variable
+Unit pointer
+*/
+function getUnitType(epd) {
+    return wread_epd(epd + 0x064 / 4, 0x064 % 4);
+}
+
+function setUnitType(epd, value) {
+    wwrite_epd(epd + 0x064 / 4, 0x064 % 4, value);
+}
+
+function get66Flag(epd) {
+    return wread_epd(epd + 0x066 / 4, 0x066 % 4);
+}
+
+function set66Flag(epd, value) {
+    wwrite_epd(epd + 0x066 / 4, 0x066 % 4, value);
+}
+
+function getPreviousPlayerUnit(epd) {
+    return dwread_epd(epd + 0x068 / 4);
+}
+
+function setPreviousPlayerUnit(epd, value) {
+    c.dwwrite_epd(epd, 0x068, value);
+}
+
+function getNextPlayerUnit(epd) {
+    return dwread_epd(epd + 0x06C / 4);
+}
+
+function setNextPlayerUnit(epd, value) {
+    c.dwwrite_epd(epd, 0x06C, value);
+}
+
+function getSubUnit(epd) {
+    return dwread_epd(epd + 0x070 / 4);
+}
+
+function setSubUnit(epd, value) {
+    c.dwwrite_epd(epd, 0x070, value);
+}
+
+function getOrderQueueHead(epd) {
+    return dwread_epd(epd + 0x074 / 4);
+}
+
+function setOrderQueueHead(epd, value) {
+    c.dwwrite_epd(epd, 0x074, value);
+}
+
+function getOrderQueueTail(epd) {
+    return dwread_epd(epd + 0x078 / 4);
+}
+
+function setOrderQueueTail(epd, value) {
+    c.dwwrite_epd(epd, 0x078, value);
+}
+
+function getAutoTargetUnit(epd) {
+    return dwread_epd(epd + 0x07C / 4);
+}
+
+function setAutoTargetUnit(epd, value) {
+    dwread_epd(epd + 0x07C / 4);
+}
+
+function getOrderQueueCount(epd) {
+    return bread_epd(epd + 0x084 / 4, 0x084 % 4);
+}
+
+function setOrderQueueCount(epd, value) {
+    bwrite_epd(epd + 0x084 / 4, 0x084 % 4, value);
+}
+
+function getOrderQueueTimer(epd) {
+    return bread_epd(epd + 0x085 / 4, 0x085 % 4);
+}
+
+function setOrderQueueTimer(epd, value) {
+    bwrite_epd(epd + 0x085 / 4, 0x085 % 4, value);
+}
+
+function getUnknown86(epd) {
+    return bread_epd(epd + 0x086 / 4, 0x086 % 4);
+}
+
+function setUnknown86(epd, value) {
+    bwrite_epd(epd + 0x086 / 4, 0x086 % 4, value);
+}
+
+function getAttackNotifyTimer(epd) {
+    return bread_epd(epd + 0x087 / 4, 0x087 % 4);
+}
+
+function setAttackNotifyTimer(epd, value) {
+    bwrite_epd(epd + 0x087 / 4, 0x087 % 4, value);
+}
+
+function getPreviousUnitType(epd) {
+    return wread_epd(epd + 0x088 / 4, 0x088 % 4);
+}
+
+function setPreviousUnitType(epd, value) {
+    wwrite_epd(epd + 0x088 / 4, 0x088 % 4, value);
+}
+
+function getLastEventTimer(epd) {
+    return bread_epd(epd + 0x08A / 4, 0x08A % 4);
+}
+
+function setLastEventTimer(epd, value) {
+    bwrite_epd(epd + 0x08A / 4, 0x08A % 4, value);
+}
+
+function getLastEventColor(epd) {
+    return bread_epd(epd + 0x08B / 4, 0x08B % 4);
+}
+
+function setLastEventColor(epd, value) {
+    bwrite_epd(epd + 0x08B / 4, 0x08B % 4, value);
+}
+
+function get8Flag(epd) {
+    return wread_epd(epd + 0x08C / 4, 0x08C % 4);
+}
+
+function set8Flag(epd, value) {
+    wwrite_epd(epd + 0x08C / 4, 0x08C % 4, value);
+}
+
+function getRankIncrease(epd) {
+    return bread_epd(epd + 0x08E / 4, 0x08E % 4);
+}
+
+function setRankIncrease(epd, value) {
+    bwrite_epd(epd + 0x08E / 4, 0x08E % 4, value);
+}
+
+function getKillCount(epd) {
+    return bread_epd(epd + 0x08F / 4, 0x08F % 4);
+}
+
+function setKillCount(epd, value) {
+    bwrite_epd(epd + 0x08F / 4, 0x08F % 4, value);
+}
+
+function getLastAttackingPlayer(epd) {
+    return bread_epd(epd + 0x090 / 4, 0x090 % 4);
+}
+
+function setLastAttackingPlayer(epd, value) {
+    bwrite_epd(epd + 0x090 / 4, 0x090 % 4, value);
+}
+
+function getSecondaryOrderTimer(epd) {
+    return bread_epd(epd + 0x091 / 4, 0x091 % 4);
+}
+
+function setSecondaryOrderTimer(epd, value) {
+    bwrite_epd(epd + 0x091 / 4, 0x091 % 4, value);
+}
+
+function getAIActionFlag(epd) {
+    return bread_epd(epd + 0x092 / 4, 0x092 % 4);
+}
+
+function setAIActionFlag(epd, value) {
+    bwrite_epd(epd + 0x092 / 4, 0x092 % 4, value);
+}
+
+function getUserActionFlags(epd) {
+    return bread_epd(epd + 0x093 / 4, 0x093 % 4);
+}
+
+function setUserActionFlags(epd, value) {
+    bwrite_epd(epd + 0x093 / 4, 0x093 % 4, value);
+}
+
+function getCurrentButtonSet(epd) {
+    return wread_epd(epd + 0x094 / 4, 0x094 % 4);
+}
+
+function setCurrentButtonSet(epd, value) {
+    wwrite_epd(0x094 / 4, 0x094 % 4, value);
+}
+
+function getIsCloaked(epd) {
+    return bread_epd(epd + 0x096 / 4, 0x096 % 4);
+}
+
+function setIsCloaked(epd, value) {
+    bwrite_epd(epd + 0x096 / 4, 0x096 % 4, value);
+}
+
+function getMovementState(epd) {
+    return bread_epd(epd + 0x097 / 4, 0x097 % 4);
+}
+
+function setMovementState(epd, value) {
+    bwrite_epd(epd + 0x097 / 4, 0x097 % 4, value);
+}
+
+function getBuildQueue1(epd) {
+    return wread_epd(epd + 0x098 / 4, 0x098 % 4);
+}
+
+function setBuildQueue1(epd, value) {
+    wwrite_epd(epd + 0x098 / 4, 0x098 % 4, value);
+}
+
+function getBuildQueue2(epd) {
+    return wread_epd(epd + 0x09A / 4, 0x09A % 4);
+}
+
+function setBuildQueue2(epd, value) {
+    wwrite_epd(epd + 0x09A / 4, 0x09A % 4, value);
+}
+
+function getBuildQueue3(epd) {
+    return wread_epd(epd + 0x09C / 4, 0x09C % 4);
+}
+
+function setBuildQueue3(epd, value) {
+    wwrite_epd(epd + 0x09C / 4, 0x09C % 4, value);
+}
+
+function getBuildQueue4(epd) {
+    return wread_epd(epd + 0x09E / 4, 0x09E % 4);
+}
+
+function setBuildQueue4(epd, value) {
+    wwrite_epd(epd + 0x09E / 4, 0x09E % 4, value);
+}
+
+function getBuildQueue5(epd) {
+    return wread_epd(epd + 0x0A0 / 4, 0x0A0 % 4);
+}
+
+function setBuildQueue5(epd, value) {
+    wwrite_epd(epd + 0x0A0 / 4, 0x0A0 % 4, value);
+}
+
+function getEnergy(epd) {
+    return wread_epd(epd + 0x0A2 / 4,  0x0A2 % 4) / 256;
+}
+
+function setEnergy(epd, energy) {
+    c.dwwrite_epd(epd, 0x0,(energy * 256) * 65536);
+}
+
+function getBuildQueueSlot(epd) {
+    return bread_epd(epd + 0x0A4 / 4, 0x0A4 % 4);
+}
+
+function setBuildQueueSlot(epd, value) {
+    bwrite_epd(epd + 0x0A4 / 4, 0x0A4 % 4, value);
+}
+
+function getUniquenessIdentifier(epd) {
+    return bread_epd(epd + 0x0A5 / 4, 0x0A5 % 4);
+}
+
+function setUniquenessIdentifier(epd, value) {
+    bwrite_epd(epd + 0x0A5 / 4, 0x0A5 % 4, value);
+}
+
+function getSecondaryOrderID(epd) {
+    return bread_epd(epd + 0x0A6 / 4, 0x0A6 % 4);
+}
+
+function setSecondaryOrderID(epd, value) {
+    bwrite_epd(epd + 0x0A6 / 4, 0x0A6 % 4, value);
+}
+
+function getBuildingOverlayState(epd) {
+    return bread_epd(epd + 0x0A7 / 4, 0x0A7 % 4);
+}
+
+function setBuildingOverlayState(epd, value) {
+    bwrite_epd(epd + 0x0A7 / 4, 0x0A7 % 4, value);
+}
+
+function getHpGain(epd) {
+    return wread_epd(epd + 0x0A8 / 4, 0x0A8 % 4);
+}
+
+function setHpGain(epd, value) {
+    wwrite_epd(epd + 0x0A8 / 4, 0x0A8 % 4, value);
+}
+
+function getShieldGain(epd) {
+    return wread_epd(epd + 0x0AA / 4, 0x0AA % 4);
+}
+
+function setShieldGain(epd, value) {
+    wwrite_epd(epd + 0x0AA / 4, 0x0AA % 4, value);
+}
+
+function getRemainingBuildTime(epd) {
+    return wread_epd(epd + 0x0AC / 4, 0x0AC % 4);
+}
+
+function setRemainingBuildTime(epd, value) {
+    wwrite_epd(epd + 0x0AC / 4, 0x0AC % 4, value);
+}
+
+function setPreviousHitpoints(epd, value) {
+    wwrite_epd(epd + 0x0AE / 4,  0x0AE % 4, value);
+}
+
+function getPreviousHitpoints(epd) {
+    return wread_epd(epd + 0x0AE / 4,  0x0AE % 4);
+}
+
+function getLoadedUnitIndex1(epd) {
+    return wread_epd(epd + 0x0B0 / 4, 0x0B0 % 4);
+}
+
+function setLoadedUnitIndex1(epd, value) {
+    wwrite_epd(epd + 0x0B0 / 4, 0x0B0 % 4, value);
+}
+
+function getLoadedUnitIndex2(epd) {
+    return wread_epd(epd + 0x0B2 / 4, 0x0B2 % 4);
+}
+
+function setLoadedUnitIndex2(epd, value) {
+    wwrite_epd(epd + 0x0B2 / 4, 0x0B2 % 4, value);
+}
+
+function getLoadedUnitIndex3(epd) {
+    return wread_epd(epd + 0x0B4 / 4, 0x0B4 % 4);
+}
+
+function setLoadedUnitIndex3(epd, value) {
+    wwrite_epd(epd + 0x0B4 / 4, 0x0B4 % 4, value);
+}
+
+function getLoadedUnitIndex4(epd) {
+    return wread_epd(epd + 0x0B6 / 4, 0x0B6 % 4);
+}
+
+function setLoadedUnitIndex4(epd, value) {
+    wwrite_epd(epd + 0x0B6 / 4, 0x0B6 % 4, value);
+}
+
+function getLoadedUnitIndex5(epd) {
+    return wread_epd(epd + 0x0B8 / 4, 0x0B8 % 4);
+}
+
+function setLoadedUnitIndex5(epd, value) {
+    wwrite_epd(epd + 0x0B8 / 4, 0x0B8 % 4, value);
+}
+
+function getLoadedUnitIndex6(epd) {
+    return wread_epd(epd + 0x0BA / 4, 0x0BA % 4);
+}
+
+function setLoadedUnitIndex6(epd, value) {
+    wwrite_epd(epd + 0x0BA / 4, 0x0BA % 4, value);
+}
+
+function getLoadedUnitIndex7(epd) {
+    return wread_epd(epd + 0x0BC / 4, 0x0BC % 4);
+}
+
+function setLoadedUnitIndex7(epd, value) {
+    wwrite_epd(epd + 0x0BC / 4, 0x0BC % 4, value);
+}
+
+function getLoadedUnitIndex8(epd) {
+    return wread_epd(epd + 0x0BE / 4, 0x0BE % 4);
+}
+
+function setLoadedUnitIndex8(epd, value) {
+    wwrite_epd(epd + 0x0BE / 4, 0x0BE % 4, value);
+}
+
+function getSpiderMineCount(epd) {
+    return bread_epd(epd + 0x0C0 / 4, 0x0C0 % 4);
+}
+
+function setSpiderMineCount(epd, value) {
+    bwrite_epd(epd + 0x0C0 / 4, 0x0C0 % 4, value);
+}
+
+function getPInHanger(epd) {
+    return dwread_epd(epd + 0x0C0 / 4);
+}
+
+function setPInHanger(epd, value) {
+    c.dwwrite_epd(epd, 0x0C0, value);
+}
+
+function getPOutHanger(epd) {
+    return dwread_epd(epd + 0x0C4 / 4);
+}
+
+function setPOutHanger(epd, value) {
+    c.dwwrite_epd(epd, 0x0C4, value);
+}
+
+function getInHangerCount(epd) {
+    return bread_epd(epd + 0x0C8 / 4, 0x0C8 % 4);
+}
+
+function setInHangerCount(epd, value) {
+    bwrite_epd(epd + 0x0C8 / 4, 0x0C8 % 4, value);
+}
+
+function getOutHangerCount(epd) {
+    return bread_epd(epd + 0x0C9 / 4, 0x0C9 % 4);
+}
+
+function setOutHangerCount(epd, value) {
+    bwrite_epd(epd + 0x0C9 / 4, 0x0C9 % 4, value);
+}
+
+function getFighterParent(epd) {
+    return dwread_epd(epd + 0x0C0 / 4);
+}
+
+function setFighterParent(epd, value) {
+    c.dwwrite_epd(epd, 0x0C0, value);
+}
+
+function getFighterPrev(epd) {
+    return dwread_epd(epd + 0x0C4 / 4);
+}
+
+function setFighterPrev(epd, value) {
+    c.dwwrite_epd(epd, 0x0C4, value);
+}
+
+function getFighterNext(epd) {
+    return dwread_epd(epd + 0x0C8 / 4);
+}
+
+function setFighterNext(epd, value) {
+    c.dwwrite_epd(epd, 0x0C8, value);
+}
+
+function getFighterInHanger(epd) {
+    return bread_epd(epd + 0x0CC / 4, 0x0CC % 4);
+}
+
+function setFighterInHanger(epd, value) {
+    bwrite_epd(epd + 0x0CC / 4, 0x0CC % 4, value);
+}
+
+function getUnknown00(epd) {
+    return dwread_epd(epd + 0x0C0 / 4);
+}
+
+function setUnknown00(epd, value) {
+    c.dwwrite_epd(epd, 0x0C0, value);
+}
+
+function getUnknown04(epd) {
+    return dwread_epd(epd + 0x0C4 / 4);
+}
+
+function setUnknown04(epd, value) {
+    c.dwwrite_epd(epd, 0x0C4, value);
+}
+
+function getFlagSpawnFrame(epd) {
+    return dwread_epd(epd + 0x0C8 / 4);
+}
+
+function setFlagSpawnFrame(epd, value) {
+    c.dwwrite_epd(epd, 0x0C8, value);
+}
+
+function getAddon(epd) {
+    return dwread_epd(epd + 0x0C0 / 4);
+}
+
+function setAddon(epd, value) {
+    c.dwwrite_epd(epd, 0x0C0, value);
+}
+
+function getAddonBuildType(epd) {
+    return wread_epd(epd + 0x0C4 / 4, 0x0C4 % 4);
+}
+
+function setAddonBuildType(epd, value) {
+    wwrite_epd(epd + 0x0C4 / 4, 0x0C4 % 4, value);
+}
+
+function getUpgradeResearchTime(epd) {
+    return wread_epd(epd + 0x0C6 / 4, 0x0C6 % 4);
+}
+
+function setUpgradeResearchTime(epd, value) {
+    wwrite_epd(epd + 0x0C6 / 4, 0x0C6 % 4, value);
+}
+
+function getTechType(epd) {
+    return bread_epd(epd + 0x0C8 / 4, 0x0C8 % 4);
+}
+
+function setTechType(epd, value) {
+    bwrite_epd(epd + 0x0C8 / 4, 0x0C8 % 4, value);
+}
+
+function getUpgradeType(epd) {
+    return bread_epd(epd + 0x0C9 / 4, 0x0C9 % 4);
+}
+
+function setUpgradeType(epd, value) {
+    bwrite_epd(epd + 0x0C9 / 4, 0x0C9 % 4, value);
+}
+
+function getLarvaTimer(epd) {
+    return bread_epd(epd + 0x0CA / 4, 0x0CA % 4) / 65536 ;
+}
+
+function setLarvaTimer(epd, value) {
+    bwrite_epd(epd + 0x0CA / 4, 0x0CA % 4, value * 65536);
+}
+
+function getLandingTimer(epd) {
+    return bread_epd(epd + 0x0CB / 4, 0x0CB % 4);
+}
+
+function setLandingTimer(epd, value) {
+    bwrite_epd(epd + 0x0CB / 4, 0x0CB % 4, value);
+}
+
+function getCreepTimer(epd) {
+    return bread_epd(epd + 0x0CC / 4, 0x0CC % 4);
+}
+
+function setCreepTimer(epd, value) {
+    bwrite_epd(epd + 0x0CC / 4, 0x0CC % 4, value);
+}
+
+function getUpgradeLevel(epd) {
+    return bread_epd(epd + 0x0CD / 4, 0x0CD % 4);
+}
+
+function setUpgradeLevel(epd, value) {
+    bwrite_epd(epd + 0x0CD / 4, 0x0CD % 4, value);
+}
+
+function getUnknownE(epd) {
+    return wread_epd(epd + 0x0CE / 4, 0x0CE % 4);
+}
+
+function setUnknownE(epd, value) {
+    wwrite_epd(epd + 0x0CE / 4, 0x0CE % 4, value);
+}
+
+function getPowerup(epd) {
+    return dwread_epd(epd + 0x0C0 / 4);
+}
+
+function setPowerup(epd, value) {
+    c.dwwrite_epd(epd, 0x0C0, value);
+}
+
+function getTargetResourceX(epd) {
+    return wread_epd(epd + 0x0C4 / 4, 0x0C4 % 4);
+}
+
+function setTargetResourceX(epd, value) {
+    wread_epd(epd + 0x0C4 / 4, 0x0C4 % 4);
+}
+
+function getTargetResourceY(epd) {
+    return wread_epd(epd + 0x0C6 / 4, 0x0C6 % 4);
+}
+
+function setTargetResourceY(epd, value) {
+    wread_epd(epd + 0x0C6 / 4, 0x0C6 % 4);
+}
+
+function getTargetResourceUnit(epd) {
+    return dwread_epd(epd + 0x0C8 / 4);
+}
+
+function setTargetResourceUnit(epd, value) {
+    dwread_epd(epd + 0x0C8 / 4);
+}
+
+function getRepairResourceLossTimer(epd) {
+    return wread_epd(epd + 0x0CC / 4, 0x0CC % 4);
+}
+
+function setRepairResourceLossTimer(epd, value) {
+    wwrite_epd(epd + 0x0CC / 4, 0x0CC % 4, value);
+}
+
+function getHarvestTarget(epd) {
+    return dwread_epd(epd + 0x0D0 / 4);
+}
+
+function setHarvestTarget(epd, value) {
+    dwread_epd(epd + 0x0D0 / 4);
+}
+
+function getPrevHarvestUnit(epd) {
+    return dwread_epd(epd + 0x0D4 / 4);
+}
+
+function setPrevHarvestUnit(epd, value) {
+    c.dwwrite_epd(epd, 0x0D4, value);
+}
+
+function getNextHarvestUnit(epd) {
+    return dwread_epd(epd + 0x0D8 / 4);
+}
+
+function setNextHarvestUnit(epd, value) {
+    c.dwwrite_epd(epd, 0x0D8, value);
+}
+
+function getResourceCount(epd) {
+    return wread_epd(epd + 0x0D0 / 4, 0x0D0 % 4);
+}
+
+function setResourceCount(epd, value) {
+    wwrite_epd(epd + 0x0D0 / 4, 0x0D0 % 4, value);
+}
+
+function getResourceIscript(epd) {
+    return bread_epd(epd + 0x0D2 / 4, 0x0D2 % 4);
+}
+
+function setResourceIscript(epd, value) {
+    bwrite_epd(epd + 0x0D2 / 4, 0x0D2 % 4, value);
+}
+
+function getGatherQueueCount(epd) {
+    return bread_epd(epd + 0x0D3 / 4, 0x0D3 % 4);
+}
+
+function setGatherQueueCount(epd, value) {
+    bwrite_epd(epd + 0x0D3 / 4, 0x0D3 % 4, value);
+}
+
+function getNextGatherer(epd) {
+    return dwread_epd(epd + 0x0D4 / 4);
+}
+
+function setNextGatherer(epd, value) {
+    c.dwwrite_epd(epd, 0x0D4, value);
+}
+
+function getResourceGroup(epd) {
+    return bread_epd(epd + 0x0D8 / 4, 0x0D8 % 4);
+}
+
+function setResourceGroup(epd, value) {
+    bwrite_epd(epd + 0x0D8 / 4, 0x0D8 % 4, value);
+}
+
+function getResourceBelongsToAI(epd) {
+    return bread_epd(epd + 0x0D9 / 4, 0x0D9 % 4);
+}
+
+function setResourceBelongsToAI(epd, value) {
+    bwrite_epd(epd + 0x0D9 / 4, 0x0D9 % 4, value);
+}
+
+function getNydusExit(epd) {
+    return dwread_epd(epd + 0x0D0 / 4);
+}
+
+function setNydusExit(epd, value) {
+    c.dwwrite_epd(epd, 0x0D0, value);
+}
+
+function getGhostNukeDot(epd) {
+    return dwread_epd(epd + 0x0D0 / 4);
+}
+
+function setGhostNukeDot(epd, value) {
+    c.dwwrite_epd(epd, 0x0D0, value);
+}
+
+function getPylonpPowerTemplate(epd) {
+    return dwread_epd(epd + 0x0D0 / 4);
+}
+
+function setPylonpPowerTemplate(epd, value) {
+    c.dwwrite_epd(epd, 0x0D0, value);
+}
+
+function getSiloNuke(epd) {
+    return dwread_epd(epd + 0x0D0 / 4);
+}
+
+function setSiloNuke(epd, value) {
+    c.dwwrite_epd(epd, 0x0D0, value);
+}
+
+function getSiloReady(epd) {
+    return bread_epd(epd + 0x0D4 / 4, 0x0D4 % 4);
+}
+
+function setSiloReady(epd, value) {
+    bwrite_epd(epd + 0x0D4 / 4, 0x0D4 % 4, value);
+}
+
+function getHatcheryHarvestValueLeft(epd) {
+    return wread_epd(epd + 0x0D0 / 4, 0x0D0 % 4);
+}
+
+function setHatcheryHarvestValueLeft(epd, value) {
+    wwrite_epd(epd + 0x0D0 / 4, 0x0D0 % 4, value);
+}
+
+function getHatcheryHarvestValueTop(epd) {
+    return wread_epd(epd + 0x0D2 / 4, 0x0D2 % 4);
+}
+
+function setHatcheryHarvestValueTop(epd, value) {
+    wwrite_epd(epd + 0x0D2 / 4, 0x0D2 % 4, value);
+}
+
+function getHatcheryHarvestValueRight(epd) {
+    return wread_epd(epd + 0x0D4 / 4, 0x0D4 % 4);
+}
+
+function setHatcheryHarvestValueRight(epd, value) {
+    wwrite_epd(epd + 0x0D4 / 4, 0x0D4 % 4, value);
+}
+
+function getHatcheryHarvestValueBottom(epd) {
+    return wread_epd(epd + 0x0D6 / 4, 0x0D6 % 4);
+}
+
+function setHatcheryHarvestValueBottom(epd, value) {
+    wwrite_epd(epd + 0x0D6 / 4, 0x0D6 % 4, value);
+}
+
+function getOriginX(epd) {
+    return wread_epd(epd + 0x0D0 / 4, 0x0D0 % 4);
+}
+
+function setOriginX(epd, value) {
+    wwrite_epd(epd + 0x0D0 / 4, 0x0D0 % 4, value);
+}
+
+function getOriginY(epd) {
+    return wread_epd(epd + 0x0D2 / 4, 0x0D2 % 4);
+}
+
+function setOriginY(epd, value) {
+    wwrite_epd(epd + 0x0D2 / 4, 0x0D2 % 4, value);
+}
+
+function getStatusFlags(epd) {
+    return dwread_epd(epd + 0x0DC / 4, 0x0DC % 4);
+}
+
+function setStatusFlags(epd, value) {
+    dwwrite_epd(epd + 0x0DC / 4, 0x0DC % 4, value);
+}
+
+function getResourceType(epd) {
+    return bread_epd(epd + 0x0E0 / 4, 0x0E0 % 4);
+}
+
+function setResourceType(epd, value) {
+    bwrite_epd(epd + 0x0E0 / 4, 0x0E0 % 4, value);
+}
+
+function getWireframeRandomizer(epd) {
+    return bread_epd(epd + 0x0E1 / 4, 0x0E1 % 4);
+}
+
+function setWireframeRandomizer(epd, value) {
+    bwrite_epd(epd + 0x0E1 / 4, 0x0E1 % 4, value);
+}
+
+function getSecondaryOrderState(epd) {
+    return bread_epd(epd + 0x0E2 / 4, 0x0E2 % 4);
+}
+
+function setSecondaryOrderState(epd, value) {
+    bwrite_epd(epd + 0x0E2 / 4, 0x0E2 % 4, value);
+}
+
+function getRecentOrderTimer(epd) {
+    return bread_epd(epd + 0x0E3 / 4, 0x0E3 % 4);
+}
+
+function setRecentOrderTimer(epd, value) {
+    bwrite_epd(epd + 0x0E3 / 4, 0x0E3 % 4, value);
+}
+
+function getVisibilityStatus(epd) {
+    return dwread_epd(epd + 0x0E4 / 4);
+}
+
+function setVisibilityStatus(epd, value) {
+    c.dwwrite_epd(epd, 0x0E4, value);
+}
+
+function getSecondaryOrderPositionX(epd) {
+    return wread_epd(epd + 0x0E8 / 4, 0x0E8 % 4);
+}
+
+function setSecondaryOrderPositionX(epd, value) {
+    wwrite_epd(epd + 0x0E8 / 4, 0x0E8 % 4, value);
+}
+
+function getSecondaryOrderPositionY(epd) {
+    return wread_epd(epd + 0x0EA / 4, 0x0EA % 4);
+}
+
+function setSecondaryOrderPositionY(epd, value) {
+    wwrite_epd(epd + 0x0EA / 4, 0x0EA % 4, value);
+}
+
+function getCurrentBuildUnit(epd) {
+    return dwread_epd(epd + 0x0EC / 4);
+}
+
+function setCurrentBuildUnit(epd, value) {
+    c.dwwrite_epd(epd, 0x0EC, value);
+}
+
+function getPreviousBurrowedUnit(epd) {
+    return dwread_epd(epd + 0x0F0 / 4);
+}
+
+function setPreviousBurrowedUnit(epd, value) {
+    c.dwwrite_epd(epd, 0x0F0, value);
+}
+
+function getNextBurrowedUnit(epd) {
+    return dwread_epd(epd + 0x0F4 / 4);
+}
+
+function setNextBurrowedUnit(epd, value) {
+    c.dwwrite_epd(epd, 0x0F4, value);
+}
+
+function getRallyPositionX(epd) {
+    return wread_epd(epd + 0x0F8 / 4, 0x0F8 % 4);
+}
+
+function setRallyPositionX(epd, value) {
+    wwrite_epd(epd + 0x0F8 / 4, 0x0F8 % 4, value);
+}
+
+function getRallyPositionY(epd) {
+    return wread_epd(epd + 0x0FA / 4, 0x0FA % 4);
+}
+
+function setRallyPositionY(epd, value) {
+    wwrite_epd(epd + 0x0FA / 4, 0x0FA % 4, value);
+}
+
+function getRallyUnit(epd) {
+    return dwread_epd(epd + 0x0FC / 4);
+}
+
+function setRallyUnit(epd, value) {
+    c.dwwrite_epd(epd, 0x0FC, value);
+}
+
+function getPylonPrevPsiProvider(epd) {
+    return dwread_epd(epd + 0x0F8 / 4);
+}
+
+function setPylonPrevPsiProvider(epd, value) {
+    c.dwwrite_epd(epd, 0x0F8, value);
+}
+
+function getPylonNextPsiProvider(epd) {
+    return dwread_epd(epd + 0x0FC / 4);
+}
+
+function setPylonNextPsiProvider(epd, value) {
+    c.dwwrite_epd(epd, 0x0FC, value);
+}
+
+function getPath(epd) {
+    return dwread_epd(epd + 0x100 / 4);
+}
+
+function setPath(epd, value) {
+    c.dwwrite_epd(epd, 0x100, value);
+}
+
+function getPathingCollisionInterval(epd) {
+    return bread_epd(epd + 0x104 / 4, 0x104 % 4);
+}
+
+function setPathingCollisionInterval(epd, value) {
+    bwrite_epd(epd + 0x104 / 4, 0x104 % 4, value);
+}
+
+function getPathingFlags(epd) {
+    return bread_epd(epd + 0x105 / 4, 0x105 % 4);
+}
+
+function setPathingFlags(epd, value) {
+    bwrite_epd(epd + 0x105 / 4, 0x105 % 4, value);
+}
+
+function get106Flag(epd) {
+    return bread_epd(epd + 0x106 / 4, 0x106 % 4);
+}
+
+function set106Flag(epd, value) {
+    bwrite_epd(epd + 0x106 / 4, 0x106 % 4, value);
+}
+
+function getIsBeingHealed(epd) {
+    return bread_epd(epd + 0x107 / 4, 0x107 % 4);
+}
+
+function setIsBeingHealed(epd, value) {
+    bwrite_epd(epd + 0x107 / 4, 0x107 % 4, value);
+}
+
+function getContourBoundsLeft(epd) {
+    return wread_epd(epd + 0x108 / 4, 0x108 % 4);
+}
+
+function setContourBoundsLeft(epd, value) {
+    wwrite_epd(epd + 0x108 / 4, 0x108 % 4, value);
+}
+
+function getContourBoundsTop(epd) {
+    return wread_epd(epd + 0x10A / 4, 0x10A % 4);
+}
+
+function setContourBoundsTop(epd, value) {
+    wwrite_epd(epd + 0x10A / 4, 0x10A % 4, value);
+}
+
+function getContourBoundsRight(epd) {
+    return wread_epd(epd + 0x10C / 4, 0x10C % 4);
+}
+
+function setContourBoundsRight(epd, value) {
+    wwrite_epd(epd + 0x10C / 4, 0x10C % 4, value);
+}
+
+function getContourBoundsBottom(epd) {
+    return wread_epd(epd + 0x10E / 4, 0x10E % 4);
+}
+
+function setContourBoundsBottom(epd, value) {
+    wwrite_epd(epd + 0x10E / 4, 0x10E % 4, value);
+}
+
+function getRemoveTimer(epd) {
+    return wread_epd(epd + 0x110 / 4, 0x110 % 4);
+}
+
+function setRemoveTimer(epd, value) {
+    wwrite_epd(epd + 0x110 / 4, 0x110 % 4, value);
+}
+
+function getDefenseMatrixDamage(epd) {
+    return wread_epd(epd + 0x112 / 4, 0x112 % 4);
+}
+
+function setDefenseMatrixDamage(epd, value) {
+    wwrite_epd(epd + 0x112 / 4, 0x112 % 4, value);
+}
+
+function getDefenseMatrixTimer(epd) {
+    return bread_epd(epd + 0x114 / 4, 0x114 % 4);
+}
+
+function setDefenseMatrixTimer(epd, value) {
+    bwrite_epd(epd + 0x114 / 4, 0x114 % 4, value);
+}
+
+function getStimTimer(epd) {
+    return bread_epd(epd + 0x115 / 4, 0x115 % 4) / 256;
+}
+
+function setStimTimer(epd, value) {
+    bwrite_epd(epd + 0x115 / 4, 0x115 % 4, value * 256);
+}
+
+function getEnsnareTimer(epd) {
+    return bread_epd(epd + 0x116 / 4, 0x116 % 4);
+}
+
+function setEnsnareTimer(epd, value) {
+    bwrite_epd(epd + 0x116 / 4, 0x116 % 4, value);
+}
+
+function getLockdownTimer(epd) {
+    return bread_epd(epd + 0x117 / 4, 0x117 % 4);
+}
+
+function setLockdownTimer(epd, value) {
+    bwrite_epd(epd + 0x117 / 4, 0x117 % 4, value);
+}
+
+function getIrradiateTimer(epd) {
+    return bread_epd(epd + 0x118 / 4, 0x118 % 4);
+}
+
+function setIrradiateTimer(epd, value) {
+    bwrite_epd(epd + 0x118 / 4, 0x118 % 4, value);
+}
+
+function getStasisTimer(epd) {
+    return bread_epd(epd + 0x119 / 4, 0x119 % 4);
+}
+
+function setStasisTimer(epd, value) {
+    bwrite_epd(epd + 0x119 / 4, 0x119 % 4, value);
+}
+
+function getPlagueTimer(epd) {
+    return bread_epd(epd + 0x11A / 4, 0x11A % 4);
+}
+
+function setPlagueTimer(epd, value) {
+    bwrite_epd(epd + 0x11A / 4, 0x11A % 4, value);
+}
+
+function getStormTimer(epd) {
+    return bread_epd(epd + 0x11B / 4, 0x11B % 4);
+}
+
+function setStormTimer(epd, value) {
+    bwrite_epd(epd + 0x11B / 4, 0x11B % 4, value);
+}
+
+function getIrradiatedBy(epd) {
+    return dwread_epd(epd + 0x11C / 4);
+}
+
+function setIrradiatedBy(epd, value) {
+    c.dwwrite_epd(epd, 0x11C, value);
+}
+
+function getIrradiatePlayerID(epd) {
+    return bread_epd(epd + 0x120 / 4, 0x120 % 4);
+}
+
+function setIrradiatePlayerID(epd, value) {
+    bwrite_epd(epd + 0x120 / 4, 0x120 % 4, value);
+}
+
+function getParasiteFlag(epd) {
+    return bread_epd(epd + 0x121 / 4, 0x121 % 4);
+}
+
+function setParasiteFlag(epd, value) {
+    bwrite_epd(epd + 0x121 / 4, 0x121 % 4, value);
+}
+
+function getCycleCounter(epd) {
+    return bread_epd(epd + 0x122 / 4, 0x122 % 4);
+}
+
+function setCycleCounter(epd, value) {
+    bwrite_epd(epd + 0x122 / 4, 0x122 % 4, value);
+}
+
+function getIsBlind(epd) {
+    return bread_epd(epd + 0x123 / 4, 0x123 % 4);
+}
+
+function setIsBlind(epd, value) {
+    bwrite_epd(epd + 0x123 / 4, 0x123 % 4, value);
+}
+
+function getMaelstromTimer(epd) {
+    return bread_epd(epd + 0x124 / 4, 0x124 % 4);
+}
+
+function setMaelstromTimer(epd, value) {
+    bwrite_epd(epd + 0x124 / 4, 0x124 % 4, value);
+}
+
+function getUnused125(epd) {
+    return bread_epd(epd + 0x125 / 4, 0x125 % 4);
+}
+
+function setUnused125(epd, value) {
+    bwrite_epd(epd + 0x125 / 4, 0x125 % 4, value);
+}
+
+function getAcidSporeCount(epd) {
+    return bread_epd(epd + 0x126 / 4, 0x126 % 4);
+}
+
+function setAcidSporeCount(epd, value) {
+    bwrite_epd(epd + 0x126 / 4, 0x126 % 4, value);
+}
+
+function getAcidSporeTime1(epd) {
+    return bread_epd(epd + 0x127 / 4, 0x127 % 4);
+}
+
+function setAcidSporeTime1(epd, value) {
+    bwrite_epd(epd + 0x127 / 4, 0x127 % 4, value);
+}
+
+function getAcidSporeTime2(epd) {
+    return bread_epd(epd + 0x128 / 4, 0x128 % 4);
+}
+
+function setAcidSporeTime2(epd, value) {
+    bwrite_epd(epd + 0x128 / 4, 0x128 % 4, value);
+}
+
+function getAcidSporeTime3(epd) {
+    return bread_epd(epd + 0x129 / 4, 0x129 % 4);
+}
+
+function setAcidSporeTime3(epd, value) {
+    bwrite_epd(epd + 0x129 / 4, 0x129 % 4, value);
+}
+
+function getAcidSporeTime4(epd) {
+    return bread_epd(epd + 0x12A / 4, 0x12A % 4);
+}
+
+function setAcidSporeTime4(epd, value) {
+    bwrite_epd(epd + 0x12A / 4, 0x12A % 4, value);
+}
+
+function getAcidSporeTime5(epd) {
+    return bread_epd(epd + 0x12B / 4, 0x12B % 4);
+}
+
+function setAcidSporeTime5(epd, value) {
+    bwrite_epd(epd + 0x12B / 4, 0x12B % 4, value);
+}
+
+function getAcidSporeTime6(epd) {
+    return bread_epd(epd + 0x12C / 4, 0x12C % 4);
+}
+
+function setAcidSporeTime6(epd, value) {
+    bwrite_epd(epd + 0x12C / 4, 0x12C % 4, value);
+}
+
+function getAcidSporeTime7(epd) {
+    return bread_epd(epd + 0x12D / 4, 0x12D % 4);
+}
+
+function setAcidSporeTime7(epd, value) {
+    bwrite_epd(epd + 0x12D / 4, 0x12D % 4, value);
+}
+
+function getAcidSporeTime8(epd) {
+    return bread_epd(epd + 0x12E / 4, 0x12E % 4);
+}
+
+function setAcidSporeTime8(epd, value) {
+    bwrite_epd(epd + 0x12E / 4, 0x12E % 4, value);
+}
+
+function getAcidSporeTime9(epd) {
+    return bread_epd(epd + 0x12F / 4, 0x12F % 4);
+}
+
+function setAcidSporeTime9(epd, value) {
+    bwrite_epd(epd + 0x12F / 4, 0x12F % 4, value);
+}
+
+function getBulletBehaviour3by3AttackSequence(epd) {
+    return wread_epd(epd + 0x130 / 4, 0x130 % 4);
+}
+
+function setBulletBehaviour3by3AttackSequence(epd, value) {
+    wwrite_epd(epd + 0x130 / 4, 0x130 % 4, value);
+}
+
+function getPadding132(epd) {
+    return wread_epd(epd + 0x132 / 4, 0x132 % 4);
+}
+
+function setPadding132(epd, value) {
+    wwrite_epd(epd + 0x132 / 4, 0x132 % 4, value);
+}
+
+function getPAI(epd) {
+    return dwread_epd(epd + 0x134 / 4);
+}
+
+function setPAI(epd, value) {
+    c.dwwrite_epd(epd, 0x134, value);
+}
+
+function getAirStrength(epd) {
+    return wread_epd(epd + 0x138 / 4, 0x138 % 4);
+}
+
+function setAirStrength(epd, value) {
+    wwrite_epd(epd + 0x138 / 4, 0x138 % 4, value);
+}
+
+function getGroundStrength(epd) {
+    return wread_epd(epd + 0x13A / 4, 0x13A % 4);
+}
+
+function setGroundStrength(epd, value) {
+    wwrite_epd(epd + 0x13A / 4, 0x13A % 4, value);
+}
+
+function getFinderLeft(epd) {
+    return bread_epd(epd + 0x13C / 4, 0x13C % 4);
+}
+
+function setFinderLeft(epd, value) {
+    bwrite_epd(epd + 0x13C / 4, 0x13C % 4, value);
+}
+
+function getFinderRight(epd) {
+    return bread_epd(epd + 0x140 / 4, 0x140 % 4);
+}
+
+function setFinderRight(epd, value) {
+    bwrite_epd(epd + 0x140 / 4, 0x140 % 4, value);
+}
+
+function getFinderTop(epd) {
+    return bread_epd(epd + 0x144 / 4, 0x144 % 4);
+}
+
+function setFinderTop(epd, value) {
+    bwrite_epd(epd + 0x144 / 4, 0x144 % 4, value);
+}
+
+function getFinderBottom(epd) {
+    return bread_epd(epd + 0x148 / 4, 0x148 % 4);
+}
+
+function setFinderBottom(epd, value) {
+    bwrite_epd(epd + 0x148 / 4, 0x148 % 4, value);
+}
+
+function getRepulseUnknown(epd) {
+    return bread_epd(epd + 0x14C / 4, 0x14C % 4);
+}
+
+function setRepulseUnknown(epd, value) {
+    bwrite_epd(epd + 0x14C / 4, 0x14C % 4, value);
+}
+
+function getRepulseAngle(epd) {
+    return bread_epd(epd + 0x14D / 4, 0x14D % 4);
+}
+
+function setRepulseAngle(epd, value) {
+    bwrite_epd(epd + 0x14D / 4, 0x14D % 4, value);
+}
+
+function getBRepMtxX(epd) {
+    return bread_epd(epd + 0x14E / 4, 0x14E % 4);
+}
+
+function setBRepMtxX(epd, value) {
+    bwrite_epd(epd + 0x14E / 4, 0x14E % 4, value);
+}
+
+function getBRepMtxY(epd) {
+    return bread_epd(epd + 0x14F / 4, 0x14F % 4);
+}
+
+function setBRepMtxY(epd, value) {
+    bwrite_epd(epd + 0x14F / 4, 0x14F % 4, value);
+}
+
+
+
+// Additional
+
+
+function isUnitType(epd, unitType) {
+    return getUnitType(epd) == unitType;
+}
+
+function hasEnergy(epd, energy) {
+    return getEnergy(epd) >= energy;
+}
+
+function getMaxHitpoint(epd) {
+    const unitType = getUnitType(epd);
+    return dwread(0x65FD00 + 9808 + unitType * 4) / 256;
+}
+
+function getTopSpeed(epd) {
+    return getCurrentSpeed2(epd);
+}
+
+function setTopSpeed(epd, speed) {
+    setCurrentSpeed2(epd, speed);
+    setFlingyTopSpeed(epd, speed);
+}
+
+function getOriginalTopSpeed(epd) {
+    const unitType = getUnitType(epd);
+    return dwread(0x6C9858 + 1696 + unitType * 4);
+}
+
+function getAcceleration(epd) {
+    return wread_epd(epd + 0x048 / 4,  0x048 % 4);
+}
+
+function setAcceleration(epd, acceleration) {
+    wwrite_epd(epd + 0x048 / 4,  0x048 % 4, acceleration);
+}
+
+function getOrder(epd) {
+    return bread_epd(epd + 0x04D / 4,  0x04D % 4);
+}
+
+function setOrder(epd, order) {
+    bwrite_epd(epd + 0x04D / 4,  0x04D % 4, order);
+}
+
+function getSecondaryOrder(epd) {
+    return bread_epd(epd + 0x0A6 / 4,  0x0A6 % 4);
+}
+
+function setSecondaryOrder(epd, order) {
+    bwrite_epd(epd + 0x0A6 / 4,  0x0A6 % 4, order);
+}
+
+function getCommandCard(epd) {
+    return wread_epd(epd + 0x094 / 4,  0x094 % 4);
+}
+
+function setCommandCard(epd, id) {
+    wwrite_epd(epd + 0x094 / 4,  0x094 % 4, id);
+}
+
+function increment106Flag(epd) {
+    set106Flag(epd, get106Flag(epd) + 1);
+}
+
+function setPosition(epd, x, y) {
+    setPositionX(epd, x);
+    setPositionY(epd, y + y*65536);
+}
+
+function getResourceCarryCount(epd) {
+    return bread_epd(epd + 0x0CF / 4,  0x0CF % 4);
+}
+
+function setResourceCarryCount(epd, count) {
+    bwrite_epd(epd + 0x0CF / 4,  0x0CF % 4, count);
+}
+
+function getIsCarryingSomething(epd) {
+    return bread_epd(epd + 0x0CE / 4,  0x0CE % 4);
+}
+
+function setIsCarryingSomething(epd, flag) {
+    bwrite_epd(epd + 0x0CE / 4,  0x0CE % 4, flag);
+}
+
+function setConnectedUnit(epd, value) {
+    c.dwwrite_epd(epd, 0x080, value);
+}
+
+function getConnectedUnit(epd) {
+    return dwread_epd(epd + 0x080 / 4);
+}
+
+// TARGETING 
+
+function getTargetX(epd) {
+    return wread_epd(epd + 0x058 / 4,  0x058 % 4);
+}
+
+function getTargetY(epd) {
+    return wread_epd(epd + 0x05A / 4,  0x05A % 4);
+}
+
+function getTargetUnitRaw(epd) {
+    return dwread_epd(epd + 0x05C / 4);
+}
+
+function isOrderTargetUnitValid(epd) {
+    return getTargetUnitRaw(epd) > 0;
+}
+
+function getTargetUnit(epd) {
+    return EPD(getTargetUnitRaw(epd));
+}
+
+function setTargetUnit(epd, targetUnitPtr) {
+    c.dwwrite_epd(epd, 0x05C, targetUnitPtr);
+}
+
+function getTargetResourceRaw(epd) {
+    return dwread_epd(epd + 0x0C8 / 4);
+}

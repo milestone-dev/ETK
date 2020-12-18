@@ -1,0 +1,5 @@
+//ETKCommon.eps
+
+function dwwrite_epd(epd, addr, value) {
+    SetMemoryEPD(epd + addr / 4, SetTo, value);
+}
