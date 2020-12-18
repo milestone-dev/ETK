@@ -9,7 +9,7 @@ Download the [Latest Version Zip File](https://github.com/milestone-games/ETK/ar
 
 ## Usage
 
-```
+```javascript
 import TriggerEditor.ETKUnit as Unit;
 import TriggerEditor.ETKUtils as Utils;
 import TriggerEditor.ETKConstants as Const;
