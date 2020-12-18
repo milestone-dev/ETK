@@ -4,6 +4,7 @@ ETK is possible thanks to [euddraft](https://github.com/phu54321/euddraft/) and 
 
 ## Installation
 Download the [Latest Version Zip File](https://github.com/milestone-games/ETK/archive/master.zip) and place all files in this folder:
+
 `C:\Program Files\EUD.Editor.3.0\Data\TriggerEditor\` 
 
 ## Usage
