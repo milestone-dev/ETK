@@ -24,8 +24,10 @@ function onPluginStart() {
 function beforeTriggerExec() {
 
 	// Hero gains HP while attacking
-	if (Unit.getOrder(heroUnit) == Const.Order_AttackUnit_Normal && Unit.getHitpoints(heroUnit) < Unit.getMaxHitpoints(heroUnit)) {
-		Unit.setHitpoints(heroUnit, Unit.getHitpoints(heroUnit) + 1);
+	if (Unit.getOrder(heroUnit) == Const.Order_AttackUnit_Normal) {
+		if (Unit.getHitpoints(heroUnit) < Unit.getMaxHitpoints(heroUnit)) {
+			Unit.setHitpoints(heroUnit, Unit.getHitpoints(heroUnit) + 1);
+		}
 	}
 
 }
