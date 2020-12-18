@@ -4483,23 +4483,11 @@ function isUnitType(unitPointer, unitType) {
 
 /***
  * @Summary.us-EN
- * Checks whether the specific unit has a certain amount of energy.
- * @param.unitPointer.us-EN
- * The unit pointer
- * @param.energy.us-EN
- * The amuont of energy to check
-***/
-function hasEnergy(unitPointer, energy) {
-    return getEnergy(unitPointer) >= energy;
-}
-
-/***
- * @Summary.us-EN
- * Get the MaxHitpoint of the unit.
+ * Get the MaxHitpoints of the unit.
  * @param.unitPointer.us-EN
  * The unit pointer
 ***/
-function getMaxHitpoint(unitPointer) {
+function getMaxHitpoints(unitPointer) {
     const unitType = getUnitType(unitPointer);
     return dwread(0x65FD00 + 9808 + unitType * 4) / 256;
 }
