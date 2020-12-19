@@ -1,9 +1,7 @@
 //ETKUnit.eps
-import TriggerEditor.ETKCommon as c;
- 
-function toEPD(ptr) {
-    return EPD(ptr);
-}
+import TriggerEditor.ETKCommon as Common;
+import TriggerEditor.ETKConstants as Constant;
+
 
 // AUTO GENEREATED
 
@@ -26,7 +24,7 @@ function getPrev(unitPointer) {
  * The new value
 ***/
 function setPrev(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x000, value);
+    Common.dwwrite_epd(unitPointer, 0x000, value);
 }
 
 /***
@@ -48,7 +46,7 @@ function getNext(unitPointer) {
  * The new value
 ***/
 function setNext(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x004, value);
+    Common.dwwrite_epd(unitPointer, 0x004, value);
 }
 
 /***
@@ -70,7 +68,7 @@ function getHitpoints(unitPointer) {
  * The new hitpoints
 ***/
 function setHitpoints(unitPointer, hitpoints) {
-    c.dwwrite_epd(unitPointer, 0x008, hitpoints * 256);
+    Common.dwwrite_epd(unitPointer, 0x008, hitpoints * 256);
 }
 
 /***
@@ -92,7 +90,7 @@ function getSprite(unitPointer) {
  * The new sprite
 ***/
 function setSprite(unitPointer, sprite) {
-    c.dwwrite_epd(unitPointer, 0x00C, sprite);
+    Common.dwwrite_epd(unitPointer, 0x00C, sprite);
 }
 
 /***
@@ -466,7 +464,7 @@ function getHaltX(unitPointer) {
  * The new value
 ***/
 function setHaltX(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x02C, value);
+    Common.dwwrite_epd(unitPointer, 0x02C, value);
 }
 
 /***
@@ -488,7 +486,7 @@ function getHaltY(unitPointer) {
  * The new value
 ***/
 function setHaltY(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x030, value);
+    Common.dwwrite_epd(unitPointer, 0x030, value);
 }
 
 /***
@@ -510,7 +508,7 @@ function getFlingyTopSpeed(unitPointer) {
  * The new value
 ***/
 function setFlingyTopSpeed(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x034, value);
+    Common.dwwrite_epd(unitPointer, 0x034, value);
 }
 
 /***
@@ -532,7 +530,7 @@ function getCurrentSpeed1(unitPointer) {
  * The new value
 ***/
 function setCurrentSpeed1(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x038, value);
+    Common.dwwrite_epd(unitPointer, 0x038, value);
 }
 
 /***
@@ -554,7 +552,7 @@ function getCurrentSpeed2(unitPointer) {
  * The new value
 ***/
 function setCurrentSpeed2(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x03C, value);
+    Common.dwwrite_epd(unitPointer, 0x03C, value);
 }
 
 /***
@@ -576,7 +574,7 @@ function getCurrentSpeedX(unitPointer) {
  * The new value
 ***/
 function setCurrentSpeedX(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x040, value);
+    Common.dwwrite_epd(unitPointer, 0x040, value);
 }
 
 /***
@@ -598,7 +596,7 @@ function getCurrentSpeedY(unitPointer) {
  * The new value
 ***/
 function setCurrentSpeedY(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x044, value);
+    Common.dwwrite_epd(unitPointer, 0x044, value);
 }
 
 /***
@@ -972,7 +970,7 @@ function getShields(unitPointer) {
  * The new value
 ***/
 function setShields(unitPointer, shields) {
-    c.dwwrite_epd(unitPointer, 0x060, shields * 256);
+    Common.dwwrite_epd(unitPointer, 0x060, shields * 256);
 }
 
 /***
@@ -1038,7 +1036,7 @@ function getPreviousPlayerUnit(unitPointer) {
  * The new value
 ***/
 function setPreviousPlayerUnit(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x068, value);
+    Common.dwwrite_epd(unitPointer, 0x068, value);
 }
 
 /***
@@ -1060,7 +1058,7 @@ function getNextPlayerUnit(unitPointer) {
  * The new value
 ***/
 function setNextPlayerUnit(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x06C, value);
+    Common.dwwrite_epd(unitPointer, 0x06C, value);
 }
 
 /***
@@ -1082,7 +1080,7 @@ function getSubUnit(unitPointer) {
  * The new value
 ***/
 function setSubUnit(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x070, value);
+    Common.dwwrite_epd(unitPointer, 0x070, value);
 }
 
 /***
@@ -1104,7 +1102,7 @@ function getOrderQueueHead(unitPointer) {
  * The new value
 ***/
 function setOrderQueueHead(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x074, value);
+    Common.dwwrite_epd(unitPointer, 0x074, value);
 }
 
 /***
@@ -1126,7 +1124,7 @@ function getOrderQueueTail(unitPointer) {
  * The new value
 ***/
 function setOrderQueueTail(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x078, value);
+    Common.dwwrite_epd(unitPointer, 0x078, value);
 }
 
 /***
@@ -1654,7 +1652,7 @@ function getEnergy(unitPointer) {
  * The new value
 ***/
 function setEnergy(unitPointer, energy) {
-    c.dwwrite_epd(unitPointer, 0x0,(energy * 256) * 65536);
+    Common.dwwrite_epd(unitPointer, 0x0,(energy * 256) * 65536);
 }
 
 /***
@@ -2050,7 +2048,7 @@ function getPInHanger(unitPointer) {
  * The new value
 ***/
 function setPInHanger(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x0C0, value);
+    Common.dwwrite_epd(unitPointer, 0x0C0, value);
 }
 
 /***
@@ -2072,7 +2070,7 @@ function getPOutHanger(unitPointer) {
  * The new value
 ***/
 function setPOutHanger(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x0C4, value);
+    Common.dwwrite_epd(unitPointer, 0x0C4, value);
 }
 
 /***
@@ -2138,7 +2136,7 @@ function getFighterParent(unitPointer) {
  * The new value
 ***/
 function setFighterParent(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x0C0, value);
+    Common.dwwrite_epd(unitPointer, 0x0C0, value);
 }
 
 /***
@@ -2160,7 +2158,7 @@ function getFighterPrev(unitPointer) {
  * The new value
 ***/
 function setFighterPrev(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x0C4, value);
+    Common.dwwrite_epd(unitPointer, 0x0C4, value);
 }
 
 /***
@@ -2182,7 +2180,7 @@ function getFighterNext(unitPointer) {
  * The new value
 ***/
 function setFighterNext(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x0C8, value);
+    Common.dwwrite_epd(unitPointer, 0x0C8, value);
 }
 
 /***
@@ -2226,7 +2224,7 @@ function getUnknown00(unitPointer) {
  * The new value
 ***/
 function setUnknown00(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x0C0, value);
+    Common.dwwrite_epd(unitPointer, 0x0C0, value);
 }
 
 /***
@@ -2248,7 +2246,7 @@ function getUnknown04(unitPointer) {
  * The new value
 ***/
 function setUnknown04(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x0C4, value);
+    Common.dwwrite_epd(unitPointer, 0x0C4, value);
 }
 
 /***
@@ -2270,7 +2268,7 @@ function getFlagSpawnFrame(unitPointer) {
  * The new value
 ***/
 function setFlagSpawnFrame(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x0C8, value);
+    Common.dwwrite_epd(unitPointer, 0x0C8, value);
 }
 
 /***
@@ -2292,7 +2290,7 @@ function getAddon(unitPointer) {
  * The new value
 ***/
 function setAddon(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x0C0, value);
+    Common.dwwrite_epd(unitPointer, 0x0C0, value);
 }
 
 /***
@@ -2512,7 +2510,7 @@ function getPowerup(unitPointer) {
  * The new value
 ***/
 function setPowerup(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x0C0, value);
+    Common.dwwrite_epd(unitPointer, 0x0C0, value);
 }
 
 /***
@@ -2644,7 +2642,7 @@ function getPrevHarvestUnit(unitPointer) {
  * The new value
 ***/
 function setPrevHarvestUnit(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x0D4, value);
+    Common.dwwrite_epd(unitPointer, 0x0D4, value);
 }
 
 /***
@@ -2666,7 +2664,7 @@ function getNextHarvestUnit(unitPointer) {
  * The new value
 ***/
 function setNextHarvestUnit(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x0D8, value);
+    Common.dwwrite_epd(unitPointer, 0x0D8, value);
 }
 
 /***
@@ -2754,7 +2752,7 @@ function getNextGatherer(unitPointer) {
  * The new value
 ***/
 function setNextGatherer(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x0D4, value);
+    Common.dwwrite_epd(unitPointer, 0x0D4, value);
 }
 
 /***
@@ -2820,7 +2818,7 @@ function getNydusExit(unitPointer) {
  * The new value
 ***/
 function setNydusExit(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x0D0, value);
+    Common.dwwrite_epd(unitPointer, 0x0D0, value);
 }
 
 /***
@@ -2842,7 +2840,7 @@ function getGhostNukeDot(unitPointer) {
  * The new value
 ***/
 function setGhostNukeDot(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x0D0, value);
+    Common.dwwrite_epd(unitPointer, 0x0D0, value);
 }
 
 /***
@@ -2864,7 +2862,7 @@ function getPylonpPowerTemplate(unitPointer) {
  * The new value
 ***/
 function setPylonpPowerTemplate(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x0D0, value);
+    Common.dwwrite_epd(unitPointer, 0x0D0, value);
 }
 
 /***
@@ -2886,7 +2884,7 @@ function getSiloNuke(unitPointer) {
  * The new value
 ***/
 function setSiloNuke(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x0D0, value);
+    Common.dwwrite_epd(unitPointer, 0x0D0, value);
 }
 
 /***
@@ -3172,7 +3170,7 @@ function getVisibilityStatus(unitPointer) {
  * The new value
 ***/
 function setVisibilityStatus(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x0E4, value);
+    Common.dwwrite_epd(unitPointer, 0x0E4, value);
 }
 
 /***
@@ -3238,7 +3236,7 @@ function getCurrentBuildUnit(unitPointer) {
  * The new value
 ***/
 function setCurrentBuildUnit(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x0EC, value);
+    Common.dwwrite_epd(unitPointer, 0x0EC, value);
 }
 
 /***
@@ -3260,7 +3258,7 @@ function getPreviousBurrowedUnit(unitPointer) {
  * The new value
 ***/
 function setPreviousBurrowedUnit(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x0F0, value);
+    Common.dwwrite_epd(unitPointer, 0x0F0, value);
 }
 
 /***
@@ -3282,7 +3280,7 @@ function getNextBurrowedUnit(unitPointer) {
  * The new value
 ***/
 function setNextBurrowedUnit(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x0F4, value);
+    Common.dwwrite_epd(unitPointer, 0x0F4, value);
 }
 
 /***
@@ -3348,7 +3346,7 @@ function getRallyUnit(unitPointer) {
  * The new value
 ***/
 function setRallyUnit(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x0FC, value);
+    Common.dwwrite_epd(unitPointer, 0x0FC, value);
 }
 
 /***
@@ -3370,7 +3368,7 @@ function getPylonPrevPsiProvider(unitPointer) {
  * The new value
 ***/
 function setPylonPrevPsiProvider(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x0F8, value);
+    Common.dwwrite_epd(unitPointer, 0x0F8, value);
 }
 
 /***
@@ -3392,7 +3390,7 @@ function getPylonNextPsiProvider(unitPointer) {
  * The new value
 ***/
 function setPylonNextPsiProvider(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x0FC, value);
+    Common.dwwrite_epd(unitPointer, 0x0FC, value);
 }
 
 /***
@@ -3414,7 +3412,7 @@ function getPath(unitPointer) {
  * The new value
 ***/
 function setPath(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x100, value);
+    Common.dwwrite_epd(unitPointer, 0x100, value);
 }
 
 /***
@@ -3832,7 +3830,7 @@ function getIrradiatedBy(unitPointer) {
  * The new value
 ***/
 function setIrradiatedBy(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x11C, value);
+    Common.dwwrite_epd(unitPointer, 0x11C, value);
 }
 
 /***
@@ -4250,7 +4248,7 @@ function getPAI(unitPointer) {
  * The new value
 ***/
 function setPAI(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x134, value);
+    Common.dwwrite_epd(unitPointer, 0x134, value);
 }
 
 /***
@@ -4684,7 +4682,7 @@ function setIsCarryingSomething(unitPointer, flag) {
  * The new value
 ***/
 function setConnectedUnit(unitPointer, value) {
-    c.dwwrite_epd(unitPointer, 0x080, value);
+    Common.dwwrite_epd(unitPointer, 0x080, value);
 }
 
 /***
@@ -4740,7 +4738,7 @@ function isOrderTargetUnitValid(unitPointer) {
  * The unit pointer
 ***/
 function getTargetUnit(unitPointer) {
-    return EPD(getTargetUnitRaw(unitPointer));
+    return Common.EPD(getTargetUnitRaw(unitPointer));
 }
 
 /***
@@ -4748,11 +4746,12 @@ function getTargetUnit(unitPointer) {
  * Set the TargetUnit of the unit.
  * @param.unitPointer.us-EN
  * The unit pointer
- * @param.value.us-EN
- * The new value
+ * @param.targetUnit.us-EN
+ * The target unit (will be converted to raw ptr)
 ***/
-function setTargetUnit(unitPointer, targetUnitPtr) {
-    c.dwwrite_epd(unitPointer, 0x05C, targetUnitPtr);
+function setTargetUnit(unitPointer, targetUnit) {
+    const targetUnitPtr = Common.PTR(targetUnit);
+    Common.dwwrite_epd(unitPointer, 0x05C, targetUnitPtr);
 }
 
 /***
@@ -4765,7 +4764,64 @@ function getTargetResourceRaw(unitPointer) {
     return dwread_epd(unitPointer + 0x0C8 / 4);
 }
 
+/***
+ * @Summary.us-EN
+ * Order the unit to attack the target unit.
+ * @param.unitPointer.us-EN
+ * The unit pointer
+ * @param.targetUnitPointer.us-EN
+ * The target unit pointer
+***/
+function attackUnit(unitPointer, targetUnitPointer) {
+    setTargetUnit(unitPointer, targetUnitPointer);
+    setOrder(unitPointer, Constant.Order_AttackUnit_Normal);
+}
 
+/***
+ * @Summary.us-EN
+ * Order the unit to stop
+ * @param.unitPointer.us-EN
+ * The unit pointer
+***/
+function stop(unitPointer) {
+    setOrder(unitPointer, Constant.Order_Stop);
+}
+
+/***
+ * @Summary.us-EN
+ * Destroy the unit
+ * @param.unitPointer.us-EN
+ * The unit pointer
+***/
+function destroy(unitPointer) {
+    setOrder(unitPointer, Constant.Order_Die);
+}
+
+/***
+ * @Summary.us-EN
+ * Heal the unit for a defined amount of hp
+ * @param.unitPointer.us-EN
+ * The unit pointer
+***/
+function heal(unitPointer, hp) {
+    if (getHitpoints(unitPointer) >= getMaxHitpoints(unitPointer)) {
+        return;
+    }
+    setHitpoints(unitPointer, getHitpoints(unitPointer) + hp);
+}
+
+/***
+ * @Summary.us-EN
+ * Damage the unit for a defined amount of hp
+ * @param.unitPointer.us-EN
+ * The unit pointer
+***/
+function damage(unitPointer, hp) {
+    setHitpoints(unitPointer, getHitpoints(unitPointer) - hp);
+    if (getHitpoints(unitPointer) == 0) {
+        destroy(unitPointer);
+    }
+}
 
 // UNIT OBJECT. WIP
 
