@@ -2,6 +2,7 @@
 
 import TriggerEditor.ETKUnit;
 import TriggerEditor.ETKConstants;
+import TriggerEditor.ETKTimer;
 import TriggerEditor.TETools as te;
 import customText as ct;
 
@@ -106,6 +107,12 @@ function createImageSpriteAtUnitPosition(unit, image) {
 	createImageSpriteAtLocation(image, $L("_Replacer"));
 }
 
+function createImageSpriteAtUnitPositionDelayed(unit, image, time) {
+	ETKTimer.add(time, unit, EUDFuncPtr (1, 0) (function(callbackUnit) {
+		createImageSpriteAtUnitPosition(callbackUnit, image);
+	}));
+}
+
 function createImageSpriteAtUnitPositionWithOffset(unit, image, xOffset, yOffset) {
 	moveReplacerLocationToUnit(unit);
 	EUDMoveLocation($L("_Replacer"), xOffset, yOffset);
@@ -135,10 +142,19 @@ function displayNotEnoughEnergyMessage(playerID) {
 function findUnitOfType(unitType, playerID) {
 	foreach(ptr, unit : EUDLoopPlayerUnit(playerID)) {
 		if (ETKUnit.getUnitType(unit) == unitType) {
-			return unit, ptr;
+			return unit;
 		}
 	}
-	return 0, 0;
+	return 0;
+}
+
+function findUnitOfTypePtr(unitType, playerID) {
+	foreach(ptr, unit : EUDLoopPlayerUnit(playerID)) {
+		if (ETKUnit.getUnitType(unit) == unitType) {
+			return ptr;
+		}
+	}
+	return 0;
 }	
 
 function findUnitOfTypeInLocation(location, unitType, playerID) {
