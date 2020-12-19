@@ -1,0 +1,80 @@
+// ETKTimer
+import customText as ct;
+const timerLength = 100;
+const timers = EUDArray(100);
+
+object Entry {
+    var callback: EUDFuncPtr (1, 0);
+    var index;
+    var time;
+    var ptr;
+    
+    function tick() {
+    	if (this.time > 0) {
+    		this.time--;
+    	}
+    }
+  
+    function call() {
+        this.callback(this.ptr);
+    }
+};
+
+function _getTimerEntry(i): Entry {
+	return timers[i];
+}
+
+function _getNextFreeTimerSlot() {
+	for (var i = 0; i < timerLength; i++) {
+		if (timers[i] == 0) {
+			return i; 
+		}
+	}
+	return 0;
+}
+
+function getTimerIDForUnit(unitPointer) {
+	for (var i = 0; i < timerLength; i++) {
+		if (_getTimerEntry(i) != 0 && _getTimerEntry(i).ptr == unitPointer) {
+			return i; 
+		}
+	}
+	return timerLength;
+}
+
+function isTimerRunningForUnit(unitPointer) {
+	return getTimerIDForUnit(unitPointer) != timerLength;
+}
+
+function _addTimerEntry(entry: Entry) {
+	const i = _getNextFreeTimerSlot();
+	entry.index = i;
+	timers[i] = entry;
+	//ct.print("addTimerEntry ", i);
+	return i;
+}
+
+
+function tick() {
+	for (var i = 0; i < timerLength; i++) {
+		if (timers[i] != 0) {
+			const entry = _getTimerEntry(i);
+			entry.tick();
+			
+			if (entry.time == 0) {
+				timers[i] = 0;
+				entry.call();
+				Entry.free(entry);
+				//ct.print("destroyTimer ", i);
+			}
+		}
+	}
+}
+
+function add(time, ptr, callback) {
+	const entry = Entry.alloc();
+	entry.callback = callback;
+	entry.time = time;
+	entry.ptr = ptr;
+	_addTimerEntry(entry);
+}
