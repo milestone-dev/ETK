@@ -13,6 +13,7 @@ Download the [Latest Version Zip File](https://github.com/milestone-games/ETK/ar
 ```javascript
 import TriggerEditor.ETKUnit as Unit;
 import TriggerEditor.ETKUtils as Utils;
+import TriggerEditor.ETKTimer as Timer;
 import TriggerEditor.ETKConstants as Const;
 
 var heroUnit;
@@ -24,13 +25,16 @@ function onPluginStart() {
 
 function beforeTriggerExec() {
 
-	// Hero gains HP while attacking
+	// Passive Ability: Hero gains HP while attacking
 	if (Unit.getOrder(heroUnit) == Const.Order_AttackUnit_Normal) {
-		if (Unit.getHitpoints(heroUnit) < Unit.getMaxHitpoints(heroUnit)) {
-			Unit.setHitpoints(heroUnit, Unit.getHitpoints(heroUnit) + 1);
+		// Heal the hero for 15 HP every 3 seconds, with a Restoration overlay effect 
+		if (!Timer.isTimerRunningForUnit(heroUnit)) {
+			Timer.add(24 * 3, heroUnit, EUDFuncPtr (1, 0) (function(callbackUnit) {
+				Utils.createImageSpriteAtUnitPosition(callbackUnit, Const.Image_Restoration_Hit_Small);
+				Unit.heal(callbackUnit, 50);
+			}));
 		}
 	}
-
 }
 
 ```
